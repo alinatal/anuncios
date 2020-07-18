@@ -1,0 +1,41 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+.card-horizontal {
+    display: flex!important;
+    flex: 1 1 auto;
+}
+
+.success-link{
+    color: $white;
+    text-decoration: none;
+}
+
+.success-link:hover{
+    color: $success;
+    text-decoration: none;
+}
+
+.notify-badge{
+    padding-right: 10px;
+    padding-left: 10px;
+    position: absolute;
+    background: $danger;
+    height:3rem;
+    top:1rem;
+    right:0rem;
+    width: auto;
+    text-align: center;
+    line-height: 3rem;;
+    font-size: 2rem;
+    border-radius: $border-radius;
+    color:white;
+    z-index: 9999;
+}
