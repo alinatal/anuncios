@@ -22,6 +22,20 @@ class SettingSeeder extends Seeder
         Setting::add('site_twitter', 'https://twitter.com/');
         Setting::add('site_facebook', 'https://facebook.com/');
         Setting::add('site_instagram', 'https://instagram.com/');
+        Setting::add('site_primary_menu', json_encode([
+            'Inicio' => '/',
+            'Categorías' => '/',
+            'Quiénes somos' => '/',
+            'Contacto' => '/'
+        ]));
+        Setting::add('site_secondary_menu', json_encode([
+            'Inicio' => '/',
+            'Acerca de' => '/',
+            'Preguntas frecuentes' => '/',
+            'Normas de conducta' => '/',
+            'Política de privacidad' => '/',
+            'Contacto' => '/'
+        ]));
 
     }
 }

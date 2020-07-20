@@ -1,16 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @if(session('message'))
+        <div class="alert alert-info" role="alert">
+            {!! session('message') !!}
+        </div>
+    @endif
+
     @isset($ads)
+        @if($ads->count())
 
         <div class="mb-5 mt-5">
             <h1>Anuncios de "{{$email}}"</h1>
 
             @foreach($ads as $ad)
 
-                <x-horizontal-ad-card
-                    :link="route('ads.index', ['slug' => $ad->slug])"
-                    :image="json_decode($ad->images)[0]"
+                <x-ad-card
+                    :link="route('ads.show', ['slug' => $ad->slug])"
+                    :image="json_decode($ad->images)"
                     :name="$ad->name"
                     :description="$ad->description"
                     :lastUpdated="$ad->updated_at"
@@ -19,21 +27,27 @@
                             'class' => 'btn btn-info',
                             'method' => 'PUT',
                             'fa-icon' => 'fa fa-pencil-square-o',
-                            'route' => route('main')
+                            'route' => route('ads.editRequest', ['ad' => $ad->id])
                         ],
                         'Eliminar'=> [
                             'class' => 'btn btn-danger',
                             'method' => 'DELETE',
                             'fa-icon' => 'fa fa-trash',
-                            'route' => route('main')
+                            'route' => route('ads.destroyRequest', ['ad' => $ad->id])
                         ],
                     ]"
-                ></x-horizontal-ad-card>
+                ></x-ad-card>
 
             @endforeach
         </div>
 
         {!! $ads->appends(['email'=>$email])->links() !!}
+        @else
+
+            <h1>No se encontraron anuncios para ese email.</h1>
+
+        @endif
+
     @else
         <h1>Mis anuncios</h1>
 

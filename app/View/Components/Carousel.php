@@ -4,16 +4,17 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class VerticalAdCard extends Component
+class Carousel extends Component
 {
+    public $images;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($images)
     {
-        //
+        $this->images = $images;
     }
 
     /**
@@ -23,6 +24,8 @@ class VerticalAdCard extends Component
      */
     public function render()
     {
-        return view('components.vertical-ad-card');
+        if(gettype($this->images) == "array" && count($this->images) > 0){
+            return view('components.carousel');
+        }
     }
 }

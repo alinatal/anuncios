@@ -1,15 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    {{--<nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{route('main')}}" class="breadcrumb-item">Inicio</a></li>
-            @foreach($categories as $category)
-                <li class="breadcrumb-item"><a href="{{route('category', ['slug' => $category->slug])}}">{{$category->name}}</a></li>
-            @endforeach
-            <li class="breadcrumb-item active" aria-current="page">{{$ad->name}}</li>
-        </ol>
-    </nav>--}}
+
     <x-breadcrumb
         :home="route('main')"
         :breadcrumbs="$categories"
@@ -20,36 +12,14 @@
         <div class="col-md-8 mb-3">
             <div class="card">
                 <span class="notify-badge">{{$ad->price}} €</span>
-                @if($ad->images)
-                    <div id="carouselExampleIndicators" class="carousel slide rounded card-img-top" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            @foreach(json_decode($ad->images) as $key => $image)
-                                <li data-target="#carouselExampleIndicators" data-slide-to="{{$key}}" class="{{(!$key) ? 'active' : ''}}"></li>
-                            @endforeach
-                        </ol>
-                        <div class="carousel-inner">
-                            @foreach(json_decode($ad->images) as $key => $image)
-                                <div class="carousel-item {{(!$key) ? 'active' : ''}}">
-                                    <img src="{{$image}}" class="d-block w-100 rounded" alt="...">
-                                </div>
-                            @endforeach
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                @endif
+                <x-carousel :images="$images"></x-carousel>
+
                 <div class="card-body">
                     <span><i class="fa fa-clock-o mr-2"></i>{{$ad->updated_at->format('d/m/Y H:i:s')}}</span>
                     <hr>
                     <h2 class="card-title">{{$ad->name}}</h2>
                     <h4 class="card-title">Descripción</h4>
-                    <p class="card-text">{{$ad->description}}</p>
+                    <p class="card-text">{!! $ad->description !!}</p>
                     <h4 class="card-title">Información adicional</h4>
                     <ul>
                         <li>Uno</li>

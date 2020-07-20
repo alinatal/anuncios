@@ -18,6 +18,6 @@ class MainController extends Controller
     {
         return view('main')
             ->withCategories(Category::rootCategories())
-            ->withAds(DB::table('Ads')->orderBy('updated_at', 'desc')->limit(10)->get());
+            ->withAds(DB::table('Ads')->orderBy('updated_at', 'desc')->limit(12)->get());
     }
 }

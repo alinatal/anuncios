@@ -35,28 +35,11 @@ class SearchController extends Controller
 
     public function myAds(Request $request){
         if($request->input('email')){
-            //$ads = Ad::where('email', $request->email());
-            //DB::enableQueryLog(); // Enable query log
-
-// Your Eloquent query executed by using get()
-
-            //$user = User::where('email', 'cristiancosanocejas@gmail.com')->first();
-            //dd(DB::getQueryLog()); // Show results of log
-
-            //dd($user);
-
-            //$ads = $user->ads;
-            //print_r($request->email);
-            //var_dump($user);
-            //DB::table('users')->join('ads', 'users.id', '=', 'user_id');
-            //$ads = User::with('ads')->where('email', 'cristiancosanocejas@gmail.com')->first()->ads;
 
             $ads = DB::table('users')
                 ->join('ads', 'users.id', '=', 'ads.user_id')
                 ->where('users.email', '=', $request->email)
                 ->orderBy('ads.updated_at', 'desc')->select(['ads.*'])->paginate(10);
-
-
 
             return view('my-ads')->withAds($ads)->withEmail($request->email);
         }

@@ -8,7 +8,12 @@ use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
-    public function index(Request $request){
+
+    public function index(){
+        $categories = Category::get()->toTree();
+        return view('categories')->withCategories($categories);
+    }
+    public function show(Request $request){
         $category = Category::all()->where('slug', '=', $request->slug)->first();
         $parents = $category->getAncestors();
         //$parents = Category::allParents($category);

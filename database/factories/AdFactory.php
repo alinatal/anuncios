@@ -9,7 +9,7 @@ use Faker\Generator as Faker;use Illuminate\Support\Str as Str;
 
 
 $factory->define(Ad::class, function (Faker $faker) {
-    for ($i = 0; $i < rand(1, 5); $i++) $images[$i] = $faker->imageUrl(200, 200);
+    for ($i = 0; $i < rand(1, 5); $i++) $images[$i] = $faker->imageUrl(400, 400);
     $name =  $faker->unique()->words(rand(2, 3), true);
 
     return [

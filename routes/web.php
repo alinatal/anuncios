@@ -14,15 +14,32 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'MainController@index')->name('main');
-Route::get('/category/{slug}', 'CategoryController@index')->name('category');
-Route::get('/ads/create', 'AdController@create')->name('ads.create');
-Route::post('/ads', 'AdController@store')->name('ads.store');
 Route::get('/my-ads', 'SearchController@myAds')->name('my-ads');
-
-Route::get('/ads/{slug}', 'AdController@index')->name('ads.index');
 Route::get('/search', 'SearchController@index')->name('search');
-Route::get('/test', 'SearchController@test')->name('test');
+
+
+Route::prefix('categorias')->name('category.')->group(function(){
+    Route::get('{slug}','CategoryController@show')->name('show');
+    Route::get('', "CategoryController@index")->name('index');
+});
+Route::prefix('anuncios')->name('ads.')->group(function(){
+    Route::get('/create', 'AdController@create')->name('create');
+    Route::get('/{slug}/', 'AdController@show')->name('show');
+    Route::post('', 'AdController@store')->name('store');
+
+    Route::prefix('{ad}')->middleware('urlSignature')->group(function(){
+        Route::put('/editar', 'AdController@editRequest')->name('editRequest');
+        Route::get('/editar', 'AdController@edit')->name('edit');
+        Route::delete('/borrar', 'AdController@destroyRequest')->name('destroyRequest');
+        Route::match(['get', 'put'], '/update', 'AdController@update')->name('update');
+        Route::match(['get', 'delete'], '/destroy', 'AdController@destroy')->name('destroy');
+    });
+
+});
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/test', function(){
+    dd( \App\Category::countErrors());
+    //echo \App\Ad::find(1)->getURL('destroy');
+})->name('test');

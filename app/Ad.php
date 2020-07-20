@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection as Collection;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Support\Facades\URL;
 
 
 class Ad extends Model
@@ -48,5 +49,13 @@ class Ad extends Model
         }
         return $ads;*/
 
+    }
+
+    public function getURL($action){
+        return URL::temporarySignedRoute(
+            'ads.'.$action,
+            now()->addDays(1),
+            ['ad' => $this]
+        );
     }
 }

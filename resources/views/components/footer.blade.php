@@ -8,12 +8,7 @@
             <div class="col-xs-12 col-sm-2 col-md-2">
                 <h5 class="font-weight-bold mb-2">Información</h5>
                 <ul class="list-unstyled quick-links">
-                    <li><a href="#" class="text-white text-decoration-none"><i class="fa fa-angle-double-right mr-2" aria-hidden="true"></i>Inicio</a></li>
-                    <li><a href="#" class="text-white text-decoration-none"><i class="fa fa-angle-double-right mr-2" aria-hidden="true"></i>Acerca de</a></li>
-                    <li><a href="#" class="text-white text-decoration-none"><i class="fa fa-angle-double-right mr-2" aria-hidden="true"></i>Preguntas frecuentes</a></li>
-                    <li><a href="#" class="text-white text-decoration-none"><i class="fa fa-angle-double-right mr-2" aria-hidden="true"></i>Normas de conducta</a></li>
-                    <li><a href="#" class="text-white text-decoration-none"><i class="fa fa-angle-double-right mr-2" aria-hidden="true"></i>Política de privacidad</a></li>
-                    <li><a href="#" class="text-white text-decoration-none"><i class="fa fa-angle-double-right mr-2" aria-hidden="true"></i>Contacto</a></li>
+                    <x-list-item :list="config('settings.site_secondary_menu')" :bullet="true"></x-list-item>
                 </ul>
             </div>
         </div>

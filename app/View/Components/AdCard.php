@@ -5,7 +5,7 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 use \Illuminate\Support\Str;
 
-class HorizontalAdCard extends Component
+class AdCard extends Component
 {
     public $link, $image, $name, $description, $price, $lastUpdated, $actions;
     /**
@@ -13,16 +13,21 @@ class HorizontalAdCard extends Component
      *
      * @return void
      */
-    public function __construct($link, $image, $name, $description, $lastUpdated, $price=null, $actions=null)
+    public function __construct($link, $image, $name, $description, $lastUpdated, $type='horizontal', $price=null, $actions=null)
     {
 
         $this->link = $link;
+        if(gettype($image) == "array"){
+            if(count($image) > 0) $image = $image[0];
+            else $image = null;
+        }
         $this->image = $image;
         $this->name = $name;
         $this->description = Str::limit($description, $limit = 120, $end = '...');
         $this->price = $price;
         $this->actions = $actions;
         $this->lastUpdated = date('d/m/Y H:i:s', strtotime($lastUpdated));
+        $this->type = $type;
     }
 
     /**
@@ -32,6 +37,11 @@ class HorizontalAdCard extends Component
      */
     public function render()
     {
-        return view('components.ads.horizontal-card');
+        if($this->type == 'horizontal'){
+            return view('components.ads.horizontal-card');
+        }
+        else if($this->type == 'vertical'){
+            return view('components.ads.vertical-card');
+        }
     }
 }

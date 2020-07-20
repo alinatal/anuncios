@@ -1,11 +1,11 @@
 <div class="card mb-3">
     <div class="card-horizontal">
         <div class="img-square-wrapper">
-            <a href="{{$link}}"><img src="{{$image}}" alt="{{$name}}" width="200" height="200"></a>
+            <a href="{{$link}}"><img src="{{$image}}" onerror="this.onerror=null; this.src='/img/no-image.png'" alt="{{$name}}" width="200" height="200"></a>
         </div>
         <div class="card-body">
             <a href="{{$link}}"><h5 class="card-title">{{$name}}</h5></a>
-            <p class="card-text">{{$description}}</p>
+            <p class="card-text">{!! $description !!}</p>
         </div>
     </div>
     <div class="card-footer">
