@@ -14,10 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'MainController@index')->name('main');
-Route::get('/mantenimiento', function (){
-    if(app()->isDownForMaintenance()) return view('frontend.maintenance');
-    else return redirect()->route('main');
-})->name('maintenance');
+Route::get('/mantenimiento', 'MaintenanceController@index')->name('maintenance');
 Route::get('/mis-anuncios', 'SearchController@myAds')->name('my-ads');
 Route::get('/mis-favoritos', 'FavController@index')->name('fav.index');
 Route::get('/mis-favoritos/{ad}', 'FavController@store')->name('fav.store');
