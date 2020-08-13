@@ -17,10 +17,13 @@ class CreateAdsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->json('images');
+            $table->json('images')->nullable();
             $table->decimal('price');
             $table->text('description');
             $table->text('location');
+            $table->ipAddress('ip');
+            $table->enum('seller_type',['profesional', 'particular']);
+            $table->boolean('expire_notification')->default(false);
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();

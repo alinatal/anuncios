@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ef157548-5661-4082-b8ac-ac149b34144b" name="aliantal.es" url="http://alinatal.es">
+        <fileTransfer rootFolder="/web/listas.alinatal.es/public_html" host="alinatal.es" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

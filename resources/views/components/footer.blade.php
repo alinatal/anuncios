@@ -3,7 +3,7 @@
         <div class="row text-center text-xs-center text-sm-left text-md-left text-white">
             <div class="col-xs-12 col-sm-10 col-md-10">
                 <h5 class="font-weight-bold mb-2">{{$rightTitle}}</h5>
-                <p>{{$rightText}}</p>
+                <p>{!! $rightText !!}</p>
             </div>
             <div class="col-xs-12 col-sm-2 col-md-2">
                 <h5 class="font-weight-bold mb-2">Información</h5>

@@ -10960,3 +10960,23 @@ a.text-dark:focus {
   z-index: 9999;
 }
 
+.cookie-consent{
+    padding: 5px;
+    text-align: center;
+    background-color: #0D4E60;
+    color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    width: 100%;
+}
+
+.cookie-consent > button{
+    margin: 5px;
+    text-align: center;
+    background-color: #bf0000;
+    border-color: transparent;
+    border-radius: 20px;
+    color: white;
+}

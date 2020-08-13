@@ -1,5 +1,5 @@
 <li class="list-group-item border-0 m-0 p-0">
-    <a href="{{route('category.show', ['slug'=>$category->slug])}}" class="" >
+    <a href="{{route('category.show', ['category'=>$category->slug])}}" class="" >
         <span class="ml-2">{{$category->name}}</span>
     </a>
 

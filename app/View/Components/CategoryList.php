@@ -8,15 +8,17 @@ class CategoryList extends Component
 {
     public $categories;
     public $accordion;
+    public $route;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($categories, $accordion = false)
+    public function __construct($categories, $route, $accordion = false)
     {
         $this->categories = $categories;
         $this->accordion = $accordion;
+        $this->route = $route;
     }
 
     /**

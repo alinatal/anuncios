@@ -7,7 +7,7 @@
     <div class="carousel-inner">
         @foreach($images as $key => $image)
             <div class="carousel-item {{(!$key) ? 'active' : ''}}">
-                <img src="{{$image}}" class="d-block w-100 rounded" onerror="this.onerror=null; this.src='/img/no-image.png'">
+                <img src="{{asset($image)}}" class="d-block w-100 rounded" onerror="this.onerror=null; this.src='/img/no-image.png'">
             </div>
         @endforeach
     </div>

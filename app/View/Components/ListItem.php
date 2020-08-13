@@ -16,9 +16,9 @@ class ListItem extends Component
     {
         if(gettype($list) == "string"){
             $list = json_decode($list);
-            foreach ($list as $name => $link){
+            /*foreach ($list as $name => $link){
                 if($link[0] == '/' && strlen($link)>1) $list->$name = substr($link, 1);
-            }
+            }*/
         }
         $this->list = $list;
         $this->bullet = $bullet;

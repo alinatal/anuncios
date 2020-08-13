@@ -1,6 +1,6 @@
 <div class="card mb-3 shadow h-100">
     <span class="notify-badge">{{$price}} €</span>
-    <a href="{{$link}}"><img src="{{$image}}" class="card-img-top" onerror="this.onerror=null; this.src='/img/no-image.png'" alt="{{$name}}"></a>
+    <a href="{{$link}}"><img src="{{asset($image)}}" class="card-img-top" onerror="this.onerror=null; this.src='/img/no-image.png'" alt="{{$name}}"></a>
     <div class="card-body">
         <a href="{{$link}}">
             <h5 class="card-title">{{$name}}</h5>

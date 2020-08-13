@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    @yield('meta-tags')
 
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
@@ -32,7 +33,17 @@
     @yield('styles')
 </head>
 <body>
+    <div id="loading" style="display: none">
+        <div id="loading" class="text-center" style="height: 100%; width: 100%; z-index: 9999999; background-color: #0D4E60; position: absolute; display: flex; justify-content: center; align-items: center">
+            <div class="fa-3x" style="">
+                <i class="fas fa-spinner fa-spin text-white"></i>
+                <p class="text-white h4">Subiendo el anuncio. Por favor, espere...</p>
+            </div>
+        </div>
+    </div>
     <div id="app">
+        @include('cookieConsent::index')
+
 
         <x-navbar
             :email="config('settings.site_email')"
@@ -51,6 +62,17 @@
                         {!! session('message') !!}
                     </div>
                 @endif
+                @if(session('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {!! session('error') !!}
+                    </div>
+                @endif
+                @if(session('success'))
+                    <div class="alert alert-success" role="alert">
+                        {!! session('success') !!}
+                    </div>
+                @endif
+                <h1>@yield('title')</h1>
                 @yield('content')
             </div>
         </main>
@@ -66,11 +88,20 @@
         ></x-footer>
 
     </div>
-    <script src="https://kit.fontawesome.com/81b3fa9a46.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/81b3fa9a46.js" crossorigin="anonymous" SameSite="None"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="https://cdn.tiny.cloud/1/0xmf4kd6fgzni5qvr3mc0ephfda1c2m8pc5dwgrirjxj4taf/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script crossorigin="anonymous"  src="https://cdn.tiny.cloud/1/0xmf4kd6fgzni5qvr3mc0ephfda1c2m8pc5dwgrirjxj4taf/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     @yield('scripts')
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{config('settings.site_google_analytics')}}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '{{config('settings.site_google_analytics')}}');
+    </script>
 </body>
 </html>

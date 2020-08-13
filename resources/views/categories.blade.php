@@ -1,13 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Categorías')
+
 @section('content')
-
-    <h1>Categorías</h1>
-
-    <div class="card p-5 mt-3">
-        <x-category-list :categories="$categories"></x-category-list>
-    </div>
-
-
-
+    <x-category-list :categories="$categories" :accordion="true" :route="'category.show'"></x-category-list>
 @endsection

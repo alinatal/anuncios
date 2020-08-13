@@ -33,7 +33,7 @@ class AdCreateRequest extends FormRequest
             'price' => 'required|numeric',
             'location' => 'required',
             'images' => 'array|max:10',
-            'images.*' => 'image | mimes:jpg,jpeg,webp,png,JPG,JPEG,WEBP,PNG | max:5120',
+            //'images.*' => 'image | mimes:jpg,jpeg,webp,png,JPG,JPEG,WEBP,PNG | max:5120',
             'fullName' => 'required',
             'email' => 'required|email',
             'phone' => 'regex:/^\+?[0-9]{0,14}$/',

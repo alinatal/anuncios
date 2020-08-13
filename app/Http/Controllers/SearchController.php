@@ -23,6 +23,7 @@ class SearchController extends Controller
                     });
                 }
             })->paginate(10)/*->limit(15)*/;
+
         //print_r($ads->paginate());
         return view('search')->withAds($ads)->withSearch($request->search);
     }
@@ -41,8 +42,11 @@ class SearchController extends Controller
                 ->where('users.email', '=', $request->email)
                 ->orderBy('ads.updated_at', 'desc')->select(['ads.*'])->paginate(10);
 
-            return view('my-ads')->withAds($ads)->withEmail($request->email);
+            if($ads->count()) return view('my-ads')->withAds($ads)->withEmail($request->email);
+            return redirect()->back()->withError('No se encontraron anuncios para ese email');
         }
         else return view('my-ads');
     }
+
+
 }

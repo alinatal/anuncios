@@ -1,39 +1,35 @@
 @extends('layouts.app')
 
-@section('content')
+@section('title', "Mis anuncios")
 
-    @if(session('message'))
-        <div class="alert alert-info" role="alert">
-            {!! session('message') !!}
-        </div>
-    @endif
+@section('content')
 
     @isset($ads)
         @if($ads->count())
 
         <div class="mb-5 mt-5">
-            <h1>Anuncios de "{{$email}}"</h1>
 
             @foreach($ads as $ad)
 
                 <x-ad-card
-                    :link="route('ads.show', ['slug' => $ad->slug])"
+                    :link="route('ads.show', ['ad' => $ad->slug])"
                     :image="json_decode($ad->images)"
                     :name="$ad->name"
                     :description="$ad->description"
                     :lastUpdated="$ad->updated_at"
+                    :price="$ad->price"
                     :actions="[
                         'Modificar'=> [
                             'class' => 'btn btn-info',
                             'method' => 'PUT',
                             'fa-icon' => 'fa fa-pencil-square-o',
-                            'route' => route('ads.editRequest', ['ad' => $ad->id])
+                            'route' => route('ads.editRequest', ['ad' => $ad->slug])
                         ],
                         'Eliminar'=> [
                             'class' => 'btn btn-danger',
                             'method' => 'DELETE',
                             'fa-icon' => 'fa fa-trash',
-                            'route' => route('ads.destroyRequest', ['ad' => $ad->id])
+                            'route' => route('ads.destroyRequest', ['ad' => $ad->slug])
                         ],
                     ]"
                 ></x-ad-card>
@@ -44,20 +40,16 @@
         {!! $ads->appends(['email'=>$email])->links() !!}
         @else
 
-            <h1>No se encontraron anuncios para ese email.</h1>
+            <p class="alert alert-danger">No se encontraron anuncios para ese email.</p>
 
         @endif
 
     @else
-        <h1>Mis anuncios</h1>
-
-
         <form action="{{route('my-ads')}}">
             <div class="form-group row">
                 <input type="email" name="email" class="form-control" placeholder="Introduzca su correo electrónico..." required>
                 <button type="submit" class="btn btn-success btn-block mt-2">Buscar</button>
             </div>
-
         </form>
     @endif
 

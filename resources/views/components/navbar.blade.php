@@ -5,7 +5,7 @@
                 <li class="list-inline-item"><span><i class="fa fa-envelope-o text-success mr-2"></i></span>
                     <a href="mailto://{{$email}}" class="success-link">{{$email}}</a>
                 </li>
-                <li class="list-inline-item"><span><i class="fa fa-phone text-success mr-2"></i></span> <a href="tel:{{$phone}}" class="success-link">{{$phone}}</a></li>
+                <!--<li class="list-inline-item"><span><i class="fa fa-phone text-success mr-2"></i></span> <a href="tel:{{$phone}}" class="success-link">{{$phone}}</a></li>-->
                 <li class="list-inline-item"><ul class="list-inline top-social">
                         <li class="list-inline-item"><a class="facebook text-decoration-none text-white" href="{{$facebook}}"><i class="fa fa-facebook"></i></a></li>
                         <li class="list-inline-item"><a class="twitter text-decoration-none text-white" href="{{$twitter}}"><i class="fa fa-twitter"></i></a></li>

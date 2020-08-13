@@ -16,7 +16,7 @@ class VerifyURLSignature
     public function handle($request, Closure $next)
     {
         if($request->method() == 'GET' && !$request->hasValidSignature()){
-            //abort(403);
+            abort(403);
         }
         return $next($request);
     }
