@@ -67,4 +67,17 @@ class AdController extends Controller
         return redirect()->route('admin.ad.index')->withMessage('Anuncio '. $ad->name .' eliminado correctamente');
 
     }
+
+    public function stats(){
+        //Ad::where('created_at', '>=', now()->startOfYear())->where('created_at', '<=', now()->endOfYear());
+        $stats = DB::table('ads_stats')
+            ->where('from', '>=', now()->startOfYear())
+            ->where('from', '<=', now()->endOfYear())
+            ->select('ads')
+            ->orderBy('from')
+            ->limit(12)
+            ->pluck('ads');
+        return response()->json($stats->toJson());
+
+    }
 }

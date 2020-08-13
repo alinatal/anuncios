@@ -28,6 +28,21 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 // Area Chart Example
+//https://anuncioslucena.test/admin/ad/stats
+var req = new XMLHttpRequest();
+req.open('GET', 'https://anuncioslucena.test/admin/ad/stats', false);
+var ads_data;
+req.onreadystatechange = function (aEvt) {
+  if (req.readyState == 4) {
+     if(req.status == 200){
+      ads_data = JSON.parse(req.responseText.substring(1, req.responseText.length-1).split(','));
+      console.log(ads_data);
+     }
+     else
+      console.log("Error loading page\n");
+  }
+};
+req.send(null); 
 var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
@@ -46,7 +61,8 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 30000],
+      data: ads_data,
+      //data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 30000],
     }],
   },
   options: {

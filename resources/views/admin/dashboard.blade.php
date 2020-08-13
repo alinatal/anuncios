@@ -57,7 +57,7 @@
             </div>
         </div>
 
-        <!-- Pending Requests Card Example -->
+
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
@@ -82,11 +82,11 @@
     <div class="row">
 
         <!-- Area Chart -->
-        <div class="col-xl-8 col-lg-7">
+        <div class="col-xl-12 col-lg-12">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Anuncios en el último año</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Número de anuncios por mes del {{date('Y')}}</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -98,7 +98,42 @@
         </div>
 
         <!-- Pie Chart -->
-        <div class="col-xl-4 col-lg-5">
+
+    </div>
+
+    <div class="row">
+        <div class="col-xl-6 col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Usuarios más activos</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Teléfono</th>
+                                    <th scope="col">Anuncios</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($activeUsers as $user)
+                                    <tr>
+                                        <td>{{$user->name}}</td>
+                                        <td>{{$user->email}}</td>
+                                        <td>{{$user->phone}}</td>
+                                        <td>{{$user->count}}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-lg-6">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -109,17 +144,7 @@
                     <div class="chart-pie pt-4 pb-2"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
                         <canvas id="myPieChart" style="display: block; height: 245px; width: 331px;" width="662" height="490" class="chartjs-render-monitor"></canvas>
                     </div>
-                    <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
-                    </span>
-                        <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                        <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                    </div>
+                    <div class="mt-4 text-center small" id="legend"></div>
                 </div>
             </div>
         </div>

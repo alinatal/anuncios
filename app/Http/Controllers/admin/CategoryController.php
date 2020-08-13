@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
@@ -74,5 +75,17 @@ class CategoryController extends Controller
     public function shiftUp(Category $category){
         $category->up();
         return back();
+    }
+
+    public function stats(){
+        //SELECT categories.name, COUNT(ads.id) FROM ads JOIN categories ON categories.id=ads.category_id GROUP BY categories.id ORDER BY COUNT(ads.id) DESC
+        $stats = DB::table('categories')
+            ->join('ads', 'categories.id', '=', 'ads.category_id')
+            ->groupBy('categories.id')
+            ->orderBy(DB::raw('COUNT(ads.id)'), 'DESC')
+            ->select(['categories.name', DB::raw('COUNT(ads.id) as count')])
+            ->limit(5)
+            ->get();
+        return response()->json($stats);
     }
 }

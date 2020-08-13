@@ -83,6 +83,7 @@ Route::namespace('admin')->middleware('checkAdmin')->prefix('admin')->name('admi
         Route::get('', 'CategoryController@index')->name('index');
         Route::get('{category:slug}/down', 'CategoryController@shiftDown')->name('shiftDown');
         Route::get('{category:slug}/up', 'CategoryController@shiftUp')->name('shiftUp');
+        Route::get('stats', 'CategoryController@stats')->name('stats');
         Route::get('create', 'CategoryController@create')->name('create');
         Route::post('', 'CategoryController@store')->name('store');
         Route::get('{category:slug}/edit', 'CategoryController@edit')->name('edit');
@@ -92,6 +93,7 @@ Route::namespace('admin')->middleware('checkAdmin')->prefix('admin')->name('admi
 
     Route::prefix('ad')->name('ad.')->group(function(){
         Route::get('', 'AdController@index')->name('index');
+        Route::get('stats', 'AdController@stats')->name('stats');
         Route::get('create', 'AdController@create')->name('create');
         Route::post('', 'AdController@store')->name('store');
         Route::get('{ad:slug}/edit', 'AdController@edit')->name('edit');
