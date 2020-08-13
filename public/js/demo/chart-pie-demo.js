@@ -5,7 +5,7 @@ Chart.defaults.global.defaultFontColor = '#858796';
 // Pie Chart Example
 //https://anuncioslucena.test/admin/ad/stats
 var req = new XMLHttpRequest();
-req.open('GET', 'https://anuncioslucena.test/admin/category/stats', false);
+req.open('GET', 'https://'+window.location.hostname+'/admin/category/stats', false);
 var categories_data;
 var labels = [];
 var data = [];
@@ -34,7 +34,7 @@ req.onreadystatechange = function (aEvt) {
       console.log("Error loading page\n");
   }
 };
-req.send(null); 
+req.send(null);
 
 
 var ctx = document.getElementById("myPieChart");
