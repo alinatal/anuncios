@@ -17,7 +17,7 @@
                 @foreach($carousel as $key => $item)
                 <div class="carousel-item {{(!$key) ? 'active' : ''}}">
                     @if($item->link != null)
-                        <a href="{{$item->link}}">
+                        <a href="{{$item->link}}" target="_blank">
                     @endif
                     <img src="{{$item->image}}" class="d-block w-100">
 
@@ -27,7 +27,9 @@
                             <p>{{$item->description}}</p>
                         </div>
                     @endif--}}
-                    </a>
+                    @if($item->link != null)
+                        </a>
+                    @endif
                 </div>
                 @endforeach
             </div>
@@ -105,7 +107,7 @@
                                 <div class="carousel-inner">
                                     @foreach($sponsorCard->shuffle() as $key => $item)
                                         <div class="carousel-item {{(!$key) ? 'active' : ''}}">
-                                            <a href="@if($item->link != null){{$item->link}}@else#@endif">
+                                            <a href="@if($item->link != null){{$item->link}}@else#@endif" @if($item->link!=null) target="_blank"@endif>
                                                 <img src="{{$item->image}}" class="d-block w-100" alt="{{$item->name}}">
                                                 {{--@if ($item->description != null)
                                                 <div class="carousel-caption d-none d-md-block bg-dark text-white rounded" style="opacity: 0.7">
