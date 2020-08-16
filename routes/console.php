@@ -24,4 +24,4 @@ Artisan::command('fetch', function (){
 
 Artisan::command('commit', function (){
     $this->comment(exec('bash commit.sh'));
-})
+});
