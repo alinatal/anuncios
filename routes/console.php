@@ -19,9 +19,15 @@ Artisan::command('inspire', function () {
 })->describe('Display an inspiring quote');
 
 Artisan::command('fetch', function (){
-    $this->comment(exec('bash deploy.sh'));
+    $process = new \Symfony\Component\Process\Process(['bash', 'deploy.sh'], base_path());
+    $process->run();
+    if (!$process->isSuccessful()) {
+        throw new \Symfony\Component\Process\Exception\ProcessFailedException($process);
+    }
+    $this->comment($process->getOutput());
+    //$this->comment(exec('bash '.base_path().'deploy.sh'));
 })->describe('Fetch data from repository');
 
 Artisan::command('commit', function (){
     $this->comment(exec('bash commit.sh'));
-});
+})->describe('Commit data to repository');
