@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+Artisan::command('fetch', function (){
+    $this->comment(exec('bash deploy.sh'));
+})->describe('Fetch data from repository');
+
+Artisan::command('commit', function (){
+    $this->comment(exec('bash commit.sh'));
+})
