@@ -18,12 +18,6 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('deploy', function (Request $request){
-    if($request->has('secret') && $request->secret == '7|P4zaudQ!4wV6kOW'){
-        echo exec('php artisan fetch');
-    }
-    return dd($request);
-
-
-    //else abort(response()->json('Unauthorized', 401));
+Route::post('deploy', function (){
+    echo exec('php artisan fetch');
 });
