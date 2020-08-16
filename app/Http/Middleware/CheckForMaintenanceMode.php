@@ -17,7 +17,7 @@ class CheckForMaintenanceMode extends Middleware
      */
     protected $except = [
         'mantenimiento',
-        'api/deploy'
+        'api/deploy',
     ];
 
     public function handle($request, Closure $next)
