@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('deploy', function (Request $request){
+Route::post('deploy', function (Request $request){
     if($request->has('secret') && $request->secret == '7|P4zaudQ!4wV6kOW'){
         echo exec('php artisan fetch');
     }
