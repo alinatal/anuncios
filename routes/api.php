@@ -22,5 +22,6 @@ Route::post('deploy', function (Request $request){
     if($request->has('secret') && $request->secret == '7|P4zaudQ!4wV6kOW'){
         echo exec('php artisan fetch');
     }
-    else abort(response()->json('Unauthorized', 401));
+    return $request->url();
+    //else abort(response()->json('Unauthorized', 401));
 });
