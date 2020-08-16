@@ -22,7 +22,7 @@ Route::post('deploy', function (Request $request){
     if($request->has('secret') && $request->secret == '7|P4zaudQ!4wV6kOW'){
         echo exec('php artisan fetch');
     }
-    return $request->url();
+    return dd($request);
 
     //else abort(response()->json('Unauthorized', 401));
 });
