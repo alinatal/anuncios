@@ -93,7 +93,7 @@
 
 <div class="row">
     <div class="col-12 mt-5">
-        <h2 class="text-muted mb-4">Últimos anuncios</h2>
+        <h2 class="text-muted mb-4">Últimoss anuncios</h2>
 
 {{--        <div class="row row-cols-1 row-cols-md-4">--}}
         @if(!$ads->count())
