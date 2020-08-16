@@ -19,5 +19,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::post('deploy', function (){
-    echo exec('php artisan fetch');
+    //echo exec('php artisan fetch');
+    \Illuminate\Support\Facades\Artisan::call('fetch');
+    //echo exec('php '.base_path().'/artisan --help');
 });
