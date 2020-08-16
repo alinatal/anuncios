@@ -23,5 +23,6 @@ Route::post('deploy', function (Request $request){
         echo exec('php artisan fetch');
     }
     return $request->url();
+
     //else abort(response()->json('Unauthorized', 401));
 });
