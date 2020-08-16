@@ -20,7 +20,8 @@ class PageSeeder extends Seeder
         (4, 'Preguntas frecuentes', '<p>esto son las preguntas frecuentes</p>', 'preguntas-frecuentes', '2020-07-22 00:27:44', '2020-07-22 00:27:44'),
         (5, 'Normas de conducta', '<p>Estas son las normas de conducta</p>', 'normas-de-conducta', '2020-07-22 00:28:10', '2020-07-22 00:28:10'),
         (6, 'Política de privacidad', '<p>Esta es nuestra pol&iacute;tica de privacidad</p>', 'politica-de-privacidad', '2020-07-22 00:28:32', '2020-07-22 00:28:32'),
-        (7, 'Condiciones de uso', '<p>Estas son nuestras condiciones de uso</p>', 'condiciones-de-uso', '2020-07-22 00:28:42', '2020-07-22 00:28:42');
+        (7, 'Condiciones de uso', '<p>Estas son nuestras condiciones de uso</p>', 'condiciones-de-uso', '2020-07-22 00:28:42', '2020-07-22 00:28:42'),
+        (8, 'Condiciones de contratación de publicidad', '<p>Estas son nuestras condiciones para la contratación de publicidad</p>', 'contratación-publicidad', '2020-07-22 00:28:52', '2020-07-22 00:28:52');
         "));
     }
 }

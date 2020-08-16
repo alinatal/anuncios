@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', $ad->name.' #'.$ad->id)
 
 @section('content')
 

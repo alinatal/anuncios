@@ -96,6 +96,9 @@
         <h2 class="text-muted mb-4">Últimos anuncios</h2>
 
 {{--        <div class="row row-cols-1 row-cols-md-4">--}}
+        @if(!$ads->count())
+            Aun no hay anuncios
+        @endif
         @foreach($ads as $key => $ad)
 
                 @if(($key+1)%5 == 0 && $key != 0)

@@ -25,6 +25,8 @@
         </a>
     @endforeach
 
+    @if($ads->count())
+
     <form action="" id="price_filter" class="mt-5">
         <input type="hidden" id="min" name="min_price" readonly style="border:0; color:#f6931f; font-weight:bold;">
         <input type="hidden" id="max" readonly name="max_price" style="border:0; color:#f6931f; font-weight:bold;">
@@ -36,9 +38,13 @@
             </div>
         </div>
     </form>
+    @endif
 
 
     <div class="mb-5 mt-5">
+    @if(!$ads->count())
+        Aun no hay anuncios en esta categoría
+    @endif
     @foreach($ads as $key => $ad)
 
         @if(($key+1)%5 == 0)

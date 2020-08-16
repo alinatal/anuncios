@@ -23,6 +23,10 @@ Route::get('/buscar', 'SearchController@index')->name('search');
 Route::post('/denuncia/{ad:slug}', 'ReportController@report')->name('report');
 
 
+Route::prefix('patrocinador')->name('sponsor.')->group(function(){
+    Route::get('crear', 'SponsorController@create')->name('create');
+    Route::post('', 'SponsorController@store')->name('store');
+});
 Route::prefix('categorias')->name('category.')->group(function(){
     Route::get('{category:slug}','CategoryController@show')->name('show');
     Route::get('/', "CategoryController@index")->name('index');

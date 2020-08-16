@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark text-white shadow-sm pt-1 pb-1">
     <div class="container">
-        <div class="col-md-10">
+        <div class="col-md-7">
             <ul class="list-inline mb-0 pt-1 pb-1">
                 <li class="list-inline-item"><span><i class="fa fa-envelope-o text-success mr-2"></i></span>
                     <a href="mailto://{{$email}}" class="success-link">{{$email}}</a>
@@ -14,8 +14,14 @@
                 </li>
             </ul>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
+            <a href="{{route('sponsor.create')}}" class="btn btn-block btn-primary">Contratar publicidad</a>
+        </div>
+        <div class="col-md-2 d-none d-md-block">
             <a href="{{route('ads.create')}}" class="btn  btn-block btn-success">Nuevo anuncio</a>
+        </div>
+        <div class="col-md-2 d-md-none mt-1">
+            <a href="{{route('ads.create')}}" class="btn btn-block btn-success">Nuevo anuncio</a>
         </div>
     </div>
 </nav>
