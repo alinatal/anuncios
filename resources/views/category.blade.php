@@ -32,7 +32,7 @@
 
         <div id="slider-range">
             <div class="row mt-4">
-                <div class="col-6" id="min-text">{{ceil((Request::has('min_price') && strlen(Request::get('min_price'))) ? Request::get('min_price') : $min)}} €</div>
+                <div class="col-6" id="min-text">{{floor((Request::has('min_price') && strlen(Request::get('min_price'))) ? Request::get('min_price') : $min)}} €</div>
                 <div class="col-6 text-right" id="max-text">{{ceil((Request::has('max_price') && strlen(Request::get('max_price'))) ? Request::get('max_price') : $max)}} €</div>
             </div>
         </div>
@@ -140,9 +140,9 @@
         $( function() {
             $( "#slider-range" ).slider({
                 range: true,
-                min: {{round($min)-1}},
-                max: {{round($max)+1}},
-                values: [{{round((Request::has('min_price') && strlen(Request::get('min_price'))) ? Request::get('min_price') : $min) -1}} , {{(round(Request::has('max_price') && strlen(Request::get('max_price')) ? Request::get('max_price') : $max))+1}} ],
+                min: {{floor($min)}},
+                max: {{ceil($max)}},
+                values: [{{floor((Request::has('min_price') && strlen(Request::get('min_price'))) ? Request::get('min_price') : $min)}} , {{(ceil(Request::has('max_price') && strlen(Request::get('max_price')) ? Request::get('max_price') : $max))}} ],
                 slide: function( event, ui ) {
 
                     $( "#max" ).val(ui.values[ 1 ]);
