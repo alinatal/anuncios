@@ -47,7 +47,7 @@
     @endif
     @foreach($ads as $key => $ad)
 
-        @if(($key+1)%5 == 0)
+        @if(($key)%5 == 0)
                 <div class="card mb-3 mt-3">
                     <div class="card-horizontal">
                         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="4000">
