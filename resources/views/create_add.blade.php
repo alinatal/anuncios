@@ -31,7 +31,10 @@
                     </div>
                     <div class="form-group">
                         <label for="description">Descripción: </label>
-                        <textarea name="description" id="description" cols="30" rows="10" placeholder="Introduce una descripción del bien o servicio que ofreces" class="form-control @error('description') is-invalid @enderror" autocomplete="off" >{{old('description')}}</textarea>
+                        <!--<textarea name="description" id="description" cols="30" rows="10" placeholder="Introduce una descripción del bien o servicio que ofreces" class="form-control @error('description') is-invalid @enderror" autocomplete="off">{{old('description')}}</textarea>-->
+                        <!--<textarea name="description" id="description" cols="30" rows="10" placeholder="Introduce una descripción del bien o servicio que ofreces" class="form-control @error('description') is-invalid @enderror">{{old('description')}}</textarea>-->
+                        <textarea name="description" id="description" cols="30" rows="20" class="form-control"></textarea>
+
                         @error('description')
                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                         @enderror
@@ -140,7 +143,7 @@
                 </div>
             </div>
 
-            <button class="btn btn-success btn-block btn-lg mt-5" type="submit" id="create_ad_button">Crear anuncio</button>
+            <button class="btn btn-success btn-block btn-lg mt-5" type="submit" id="create_ad_button" onclick="tinyMCE.triggerSave();">Crear anuncio</button>
             <p class="text-center mt-3"><small>Pulsando el botón 'Crear anuncio', confirmas que aceptas las <a href="/condiciones-de-uso" target="_blank">condiciones de uso</a> y la <a href="/politica-de-privacidad" target="_blank">política de privacidad</a> de la web</small></p>
         </form>
     @endif
@@ -353,7 +356,7 @@
                     $('#loading').show();
                     //upload Progress
                     var xhr = $.ajaxSettings.xhr();
-                    if (xhr.upload) {
+                    /*if (xhr.upload) {
                         xhr.upload.addEventListener('progress', function (event) {
                             var percent = 0;
                             var position = event.loaded || event.position;
@@ -364,7 +367,7 @@
                             //update progressbar
                             $("#upload-progress .progress-bar").css("width", +percent + "%");
                         }, true);
-                    }
+                    }*/
                     return xhr;
                 },
                 success : function (response) {

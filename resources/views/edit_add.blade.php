@@ -144,7 +144,7 @@
             </div>
         </div>
 
-        <button class="btn btn-success btn-block btn-lg mt-5">Modificar anuncio</button>
+        <button class="btn btn-success btn-block btn-lg mt-5" onclick="tinyMCE.triggerSave();">Modificar anuncio</button>
 
     </form>
 

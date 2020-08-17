@@ -40,7 +40,7 @@ class AdController extends Controller
     }
 
     public function store(AdCreateRequest $request){
-
+        //return dd($request);
         //sleep(5);
         //return (($request));
         //return $request->file('images')[0];
