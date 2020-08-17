@@ -41,7 +41,11 @@
 
     <div class="mb-5 mt-5">
     @if(!$ads->count())
-        Aun no hay anuncios en esta categoría o ha seleccionado un filtro de precio para el que no disponemos de anuncios
+        @isset($min)
+            En el filtro de precio seleccionado no hay anuncios disponibles
+        @else
+        Aun no hay anuncios en esta categoría
+        @endif
             <div class="card mb-3 mt-3">
                 <div class="card-horizontal">
                     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="4000">
