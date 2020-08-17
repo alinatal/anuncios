@@ -2,8 +2,11 @@
 
 @section('title')
     Nuevo anuncio
+@endsection
+
+@section('subtitle')
     @isset($category)
-        de <small class="font-italic">{{$category->name}} </small>
+        de {{$category->name}}
     @endisset
 @endsection
 

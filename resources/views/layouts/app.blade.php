@@ -72,7 +72,7 @@
                         {!! session('success') !!}
                     </div>
                 @endif
-                <h1>@yield('title')</h1>
+                    <h1>@yield('title') <small class="font-italic">@yield('subtitle')</small></h1>
                 @yield('content')
             </div>
         </main>
