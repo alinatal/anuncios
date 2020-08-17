@@ -25,7 +25,6 @@ Artisan::command('fetch', function (){
         throw new \Symfony\Component\Process\Exception\ProcessFailedException($process);
     }
     $this->comment($process->getOutput());
-    //$this->comment(exec('bash '.base_path().'deploy.sh'));
 })->describe('Fetch data from repository');
 
 Artisan::command('commit', function (){
