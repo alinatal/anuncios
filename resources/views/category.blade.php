@@ -44,6 +44,27 @@
     <div class="mb-5 mt-5">
     @if(!$ads->count())
         Aun no hay anuncios en esta categoría
+            <div class="card mb-3 mt-3">
+                <div class="card-horizontal">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="4000">
+                        <div class="carousel-inner">
+                            @foreach($sponsorCard->shuffle() as $key => $item)
+                                <div class="carousel-item {{(!$key) ? 'active' : ''}}">
+                                    <a href="@if($item->link != null){{$item->link}}@else#@endif" @if($item->link != null) target="_blank" @endif>
+                                        <img src="{{$item->image}}" class="d-block w-100" alt="...">
+                                        {{--@if($item->description != null)
+                                        <div class="carousel-caption d-none d-md-block bg-dark text-white rounded" style="opacity: 0.7">
+                                            <h5><a href="@if($item->link != null){{$item->link}}@else#@endif">{{$item->name}}</a></h5>
+                                            <p>{{$item->description}}</p>
+                                        </div>
+                                        @endif--}}
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
     @endif
     @foreach($ads as $key => $ad)
 
