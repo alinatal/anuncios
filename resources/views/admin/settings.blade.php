@@ -58,8 +58,8 @@
     <script>
         tinymce.init({
             selector: 'textarea',
-            language: 'es_ES',
             language_url: '{{asset('vendor/tinymce/langs/')}}'
+            language: 'es_ES',
         });
     </script>
     <style src="{{asset('js/jquery-ui/jquery-ui.min.css')}}"></style>
