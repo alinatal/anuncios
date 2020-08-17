@@ -25,7 +25,6 @@
         </a>
     @endforeach
 
-    @if($ads->count())
 
     <form action="" id="price_filter" class="mt-5">
         <input type="hidden" id="min" name="min_price" readonly style="border:0; color:#f6931f; font-weight:bold;">
@@ -33,12 +32,11 @@
 
         <div id="slider-range">
             <div class="row mt-4">
-                <div class="col-6" id="min-text">{{round((Request::has('min_price') && strlen(Request::get('min_price'))) ? Request::get('min_price') : $min)-1}} €</div>
-                <div class="col-6 text-right" id="max-text">{{round((Request::has('max_price') && strlen(Request::get('max_price'))) ? Request::get('max_price') : $max)+1}} €</div>
+                <div class="col-6" id="min-text">{{ceil((Request::has('min_price') && strlen(Request::get('min_price'))) ? Request::get('min_price') : $min)}} €</div>
+                <div class="col-6 text-right" id="max-text">{{ceil((Request::has('max_price') && strlen(Request::get('max_price'))) ? Request::get('max_price') : $max)}} €</div>
             </div>
         </div>
     </form>
-    @endif
 
 
     <div class="mb-5 mt-5">
@@ -118,7 +116,19 @@
     <style src="{{asset('js/jquery-ui/jquery-ui.theme.min.css')}}"></style>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
+    <style>
+        @media (max-width: 576px) {
+            /* Supress pointer events */
+            #slider-range { pointer-events: none; }
+            /* Enable pointer events for slider handle only */
+            #slider-range .ui-slider-handle { pointer-events: auto; }
+        }
+
+
+    </style>
+
 @endsection
+
 
 @section('scripts')
 
