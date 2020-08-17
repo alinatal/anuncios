@@ -38,7 +38,9 @@
     <script src="https://cdn.tiny.cloud/1/0xmf4kd6fgzni5qvr3mc0ephfda1c2m8pc5dwgrirjxj4taf/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
-            selector: 'textarea'
+            selector: 'textarea',
+            language: 'es_ES',
+            language_url: '{{asset('vendor/tinymce/langs/es_ES.js')}}',
         });
     </script>
 @endsection

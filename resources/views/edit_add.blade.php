@@ -157,7 +157,9 @@
 @section('scripts')
     <script>
         tinymce.init({
-            selector: '#description'
+            selector: 'textarea',
+            language: 'es_ES',
+            language_url: '{{asset('vendor/tinymce/langs/es_ES.js')}}',
         });
     </script>
 
