@@ -155,6 +155,14 @@
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-sortablejs@latest/jquery-sortable.js"></script>
 
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            language: 'es_ES',
+            language_url: '{{asset('vendor/tinymce/langs/es_ES.js')}}',
+        });
+    </script>
+
 
     <script>
         document.getElementById("images").addEventListener("change", function (event) {
