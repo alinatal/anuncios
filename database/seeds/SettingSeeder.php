@@ -26,6 +26,7 @@ class SettingSeeder extends Seeder
             'Normas de conducta' => '/normas-de-conducta',
             'Política de privacidad' => '/politica-de-privacidad',
             'Condiciones de uso' => '/condiciones-de-uso',
+            'Condiciones de contratación de publicidad' => '/contratación-publicidad',
             'Contacto' => '/contacto'
         ]);
         Setting::insert([

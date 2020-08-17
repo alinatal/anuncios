@@ -35,7 +35,7 @@
 
         <div class="form-group mt-4">
             <label for="web">Página web (opcional)</label>
-            <input type="url" class="form-control" name="web" id="web" placeholder="Introduza su web si quiere que la promocionemos junto a su anuncio">
+            <input type="text" class="form-control" name="web" id="web" placeholder="Introduza su web si quiere que la promocionemos junto a su anuncio">
         </div>
 
         <div class="form-group mt-4">
@@ -95,7 +95,7 @@
         <div class="form-check mt-4">
             <input class="form-check-input" type="checkbox" value="" id="terms" onchange="activateButton(this)">
             <label class="form-check-label" for="terms">
-                Acepto las condiciones del contrato de publicidad
+                Acepto las condiciones del <a href="{{route('pages.show',['contratación-publicidad'])}}" target="_blank">contrato de publicidad</a>
             </label>
         </div>
 
