@@ -15,7 +15,7 @@ return [
     'optimizers' => [
 
         Jpegoptim::class => [
-            '-m50', // set maximum quality to 50%
+            '-m70', // set maximum quality to 50%
             '--strip-all',  // this strips out all text information such as comments and EXIF data
             '--all-progressive',  // this will make sure the resulting image is a progressive one
         ],
@@ -28,6 +28,7 @@ return [
             '-i0', // this will result in a non-interlaced, progressive scanned image
             '-o2',  // this set the optimization level to two (multiple IDAT compression trials)
             '-quiet', // required parameter for this package
+            '-strip all',
         ],
 
         Svgo::class => [

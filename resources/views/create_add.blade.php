@@ -195,7 +195,7 @@
                     img.src = event.target.result;
                     img.onload = () => {
                         const elem = document.createElement('canvas');
-                        const width = 500;
+                        const width = 1000;
                         const scaleFactor = width / img.width;
                         const height = img.height * scaleFactor;
                         elem.width = width;
@@ -203,7 +203,7 @@
                         const ctx = elem.getContext('2d');
                         // img.width and img.height will contain the original dimensions
                         ctx.drawImage(img, 0, 0, width, height);
-                        const data = ctx.canvas.toDataURL(img, 'image/jpeg', 0.5);
+                        const data = ctx.canvas.toDataURL('image/jpeg', 0.5);
                         let div = document.createElement('div');
                         div.className = 'col-md-2 mt-3';
                         images.insertBefore(div, null);
