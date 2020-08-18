@@ -38,6 +38,7 @@
 
 @include('components.search')
 
+{{--
 <div class="row text-center">
     <div class="col-md-3 mt-3">
         <a href="{{route('ads.create')}}" class="btn btn-block btn-outline-danger font-weight-bold">
@@ -63,6 +64,7 @@
     </div>
 
 </div>
+--}}
 
 {{--<div class="row">--}}
 {{--    <div class="col-12 mt-5">--}}
