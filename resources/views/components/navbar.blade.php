@@ -167,7 +167,7 @@
             border: 0;
             border-radius: 0;
             /*background-color: #f8f9fa !important;*/
-            background-color: #343a40 !important;
+            background-color: #3590DC !important;
             width:25%;
             margin-left: 0;
         }
@@ -197,7 +197,7 @@
 
         /* Colors of the buttons*/
         .button-active, .selectors button:hover, .selectors button:active, .selectors button:focus{
-            color: deepskyblue;
+            color: #FFC106;
         }
 
         .button-inactive{
