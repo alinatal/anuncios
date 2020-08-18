@@ -106,7 +106,7 @@
                 @if(($key+1)%5 == 0 && $key != 0)
                     <div class="col mb-3 mt-3">
 
-                        <div class="card mb-3 shadow h-100">
+                        <div class="card mb-3 shadow h-100 pr-md-5 pl-md-5">
 
                             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="4000">
                                 <div class="carousel-inner">
