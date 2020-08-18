@@ -121,7 +121,7 @@
         <button onclick="location.href='{{route('category.index')}}'" id="feed" type="button" class="btn btn-secondary @if(request()->routeIs('category.index')) button-active @else button-inactive @endif">
             <div class="selector-holder">
                 <i class="fa fa-list"></i>
-                <span>Categorías</span>
+                <span>Lista de Categorías</span>
             </div>
         </button>
         <button onclick="location.href='{{route('my-ads')}}'" id="create" type="button" class="btn btn-secondary @if(request()->routeIs('my-ads')) button-active @else button-inactive @endif">
@@ -144,15 +144,18 @@
 
     @media (max-width: 768px){
         body{
-            margin-top: 60px;
+            margin-top: 80px;
         }
         .footer {
             display: block;
             position:fixed;
             top: 0;
             width: 100%;
-            height: 60px;
-            background-color: #f5f5f5;
+            height: 80px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: #3590DC !important;
+
             border-top: 1px solid transparent;
             box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
             z-index: 9999999;
@@ -192,7 +195,8 @@
         }
 
         .selector-holder span{
-            font-size: 0.6rem;
+            font-size: 0.8rem;
+            font-weight: 900;
         }
 
         /* Colors of the buttons*/
