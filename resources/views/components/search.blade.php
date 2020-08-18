@@ -1,4 +1,4 @@
-<div class="bg-primary p-5 rounded shadow">
+<div class="bg-primary p-md-5 p-2 rounded shadow">
     <form action="{{route('search')}}">
         @csrf
         <div class="row">
