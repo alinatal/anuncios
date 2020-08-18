@@ -145,7 +145,7 @@
         position:fixed;
         bottom: 0;
         width: 100%;
-        height: 60px;
+        height: 80px;
         background-color: #f5f5f5;
 
         border-top: 1px solid transparent;
