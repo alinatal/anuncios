@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark text-white shadow-sm pt-1 pb-1">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark text-white shadow-sm pt-1 pb-1 d-none d-md-block">
     <div class="container">
         <div class="col-md-4">
             <ul class="list-inline mb-0 pt-1 pb-1">
@@ -17,24 +17,24 @@
 
             <div class="col-md-2 mt-1">
                 <a href="{{route('ads.create')}}" class="btn btn-block btn-danger font-weight-bold">
-                    <i class="fas fa-plus"></i> Publicar anuncio
+                    <i class="fas fa-plus" style="font-size: 0.7rem;"></i> <span style="font-size: 0.7rem;" >Publicar anuncio</span>
                 </a>
             </div>
             <div class="col-md-2 mt-1">
                 <a href="{{route('category.index')}}" class="btn btn-block btn-success font-weight-bold">
-                    <i class="fa fa-list"></i> Categorías
+                    <i class="fa fa-list" style="font-size: 0.7rem;"></i> <span style="font-size: 0.7rem;" >Categorías</span>
                 </a>
             </div>
 
             <div class="col-md-2 mt-1">
                 <a href="{{route('my-ads')}}" class="btn btn-block btn-info font-weight-bold">
-                    <i class="fa fa-list"></i> Mis anuncios
+                    <i class="fa fa-list" style="font-size: 0.7rem;"></i> <span style="font-size: 0.7rem;" >Mis anuncios</span>
                 </a>
             </div>
 
             <div class="col-md-2 mt-1">
                 <a href="{{route('fav.index')}}" class="btn btn-block btn-secondary font-weight-bold">
-                    <i class="fa fa-star"></i> Mis favoritos
+                    <i class="fa fa-star" style="font-size: 0.7rem;"></i> <span style="font-size: 0.7rem;" >Mis favoritos</span>
                 </a>
             </div>
 
@@ -141,62 +141,79 @@
 
 
 <style>
-    .footer {
-        position:fixed;
-        bottom: 0;
-        width: 100%;
-        height: 60px;
-        background-color: #f5f5f5;
 
-        border-top: 1px solid transparent;
-        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-        z-index: 9999999;
+    @media (max-width: 768px){
+        body{
+            margin-top: 60px;
+        }
+        .footer {
+            display: block;
+            position:fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #f5f5f5;
+            border-top: 1px solid transparent;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            z-index: 9999999;
+        }
+
+        .selectors, .block{
+            height:100%;
+            width:100%;
+        }
+
+        .selectors button{
+            border: 0;
+            border-radius: 0;
+            /*background-color: #f8f9fa !important;*/
+            background-color: #343a40 !important;
+            width:25%;
+            margin-left: 0;
+        }
+
+        .selectors button:active{
+            border:0;
+        }
+
+        .selectors button:focus{
+            border:0;
+            outline: 0;
+            box-shadow: 0 0 0 0px;
+        }
+
+        .active, .selector-holder{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inactive{
+            display: none;
+        }
+
+        .selector-holder span{
+            font-size: 0.6rem;
+        }
+
+        /* Colors of the buttons*/
+        .button-active, .selectors button:hover, .selectors button:active, .selectors button:focus{
+            color: deepskyblue;
+        }
+
+        .button-inactive{
+            /*color: #000;*/
+            color: white;
+        }
+    }
+    @media (min-width: 769px){
+        .footer{
+            display: none;
+        }
     }
 
-    .selectors, .block{
-        height:100%;
-        width:100%;
-    }
 
-    .selectors button{
-        border: 0;
-        border-radius: 0;
-        background-color: #f8f9fa !important;
-        width:25%;
-        margin-left: 0;
-    }
 
-    .selectors button:active{
-        border:0;
-    }
 
-    .selectors button:focus{
-        border:0;
-        outline: 0;
-        box-shadow: 0 0 0 0px;
-    }
-
-    .active, .selector-holder{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .inactive{
-        display: none;
-    }
-
-    .selector-holder span{
-        font-size: 0.6rem;
-    }
-
-    /* Colors of the buttons*/
-    .button-active, .selectors button:hover, .selectors button:active, .selectors button:focus{
-        color: #ff0000;
-    }
-
-    .button-inactive{
-        color: #000;
-    }
 
     /*    #bottom-menu{
             position: fixed;

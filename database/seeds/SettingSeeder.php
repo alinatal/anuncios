@@ -15,8 +15,9 @@ class SettingSeeder extends Seeder
     {
         $primary_menu = json_encode([
             'Inicio' => '/',
-            'Categorías' => '/categorias',
+            //'Categorías' => '/categorias',
             'Quiénes somos' => '/quienes-somos',
+            'Contratar Publicidad' => '/patrocinador/crear',
             'Contacto' => '/contacto'
         ]);
         $secondary_menu = json_encode([
@@ -27,6 +28,7 @@ class SettingSeeder extends Seeder
             'Política de privacidad' => '/politica-de-privacidad',
             'Condiciones de uso' => '/condiciones-de-uso',
             'Condiciones de contratación de publicidad' => '/contratación-publicidad',
+            'Contratar Publicidad' => '/patrocinador/crear',
             'Contacto' => '/contacto'
         ]);
         Setting::insert([
