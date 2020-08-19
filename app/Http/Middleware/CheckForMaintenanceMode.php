@@ -29,7 +29,7 @@ class CheckForMaintenanceMode extends Middleware
                 return $next($request);
             }
 
-            if(isset($request->access) && $request->access == '4nunci0s'){
+            if(isset($request->access) && $request->access == '1236'/*'4nunci0s'*/){
                 $data['allowed'] = array_merge($data['allowed'] , [$request->ip()]);
                 file_put_contents($this->app->storagePath().'/framework/down', json_encode($data));
                 return new RedirectResponse(route('main'));
