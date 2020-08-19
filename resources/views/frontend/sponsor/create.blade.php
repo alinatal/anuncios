@@ -30,7 +30,8 @@
 
         <div class="form-group mt-4">
             <label for="description">Descripción (opcional)</label>
-            <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Introduzca una breve descripción de su empresa, esto es útil para un mejor posicionamiento en los buscadores"></textarea>
+            <input type="text" class="form-control" name="description" id="description" placeholder="Introduzca una breve descripción de su empresa, esto es útil para un mejor posicionamiento en los buscadores" maxlength="160">
+            <!--<textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Introduzca una breve descripción de su empresa, esto es útil para un mejor posicionamiento en los buscadores"></textarea>-->
         </div>
 
         <div class="form-group mt-4">
