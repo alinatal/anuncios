@@ -35,7 +35,7 @@ class AdUpdateRequest extends FormRequest
             //'images.*' => 'image | mimes:jpg,jpeg,webp,png,JPG,JPEG,WEBP,PNG | max:5120',
             'fullName' => 'required',
             'email' => 'required|email',
-            'phone' => 'regex:/^\*?[0-9]{0,14}$/',
+            'phone' => 'regex:/^\+?[0-9]{0,14}$/',
         ];
     }
 
