@@ -31,6 +31,9 @@ class AdExpiresNotification extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.ad-expires-notification')->withData($this->user_ad)->withLink($this->link);
+        return $this->view('mails.ad-expires-notification')
+            ->subject('Su anuncio expirará en 48h')
+            ->withData($this->user_ad)
+            ->withLink($this->link);
     }
 }
