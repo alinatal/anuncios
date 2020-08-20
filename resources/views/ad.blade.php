@@ -31,7 +31,9 @@
                     <hr>
                     <ul>
                         <li>Nombre: {{$user->name}}</li>
+                        @if($user->phone)
                         <li>Teléfono: <a href="tel:{{$user->phone}}">{{$user->phone}}</a></li>
+                        @endif
                         <li class="badge badge-pill @if($ad->seller_type == 'profesional') badge-warning @else badge-secondary @endif">Anuncio {{ucfirst($ad->seller_type)}}</li>
                     </ul>
                 </div>
@@ -40,8 +42,10 @@
                 <div class="card-body">
                     <h5 class="card-title">Acciones</h5>
                     <hr>
+                    @if($user->phone)
                     <a href="https://wa.me/{{(substr($user->phone, 0, 1) != '+') ? '+34'.$user->phone : $user->phone}}?text={{urlencode('Hola, Estoy interesado en este anuncio '.URL::current())}}" target="_blank" class="btn btn-success btn-block mt-2">Enviar WhatsApp</a>
                     <a href="tel:{{$user->phone}}" class="btn btn-dark btn-block mt-2 d-sm-none">Llamar por teléfono</a>
+                    @endif
                     <a href="mailto:{{$user->email}}" class="btn btn-info btn-block mt-2">Enviar correo</a>
                     <a href="{{route('fav.store', $ad)}}" class="btn btn-secondary btn-block mt-2">Añadir a favoritos</a>
                     <button type="button" class="btn btn-danger btn-block mt-2" data-toggle="modal" data-target="#exampleModal">
