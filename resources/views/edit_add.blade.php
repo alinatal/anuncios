@@ -85,6 +85,7 @@
                         @else
 
                             @foreach(json_decode($ad->images) as $image)
+                                @if($image != '/img/no-image.png')
                                 <div class="col-md-2 mt-3">
                                     @php($file_ext = pathinfo(app()->storagePath().'/app/'.$image, PATHINFO_EXTENSION))
                                     @php($file = file_get_contents(app()->storagePath().'/app/'.$image, true))
@@ -93,6 +94,7 @@
                                     <button type="button" class="btn btn-block btn-outline-danger mt-1 parent_remove">Eliminar</button>
                                     <!--<button type="button" class="btn btn-block btn-outline-info handle mt-1">Mover</button>-->
                                 </div>
+                                @endif
                             @endforeach
                         @endif
                     </div>
