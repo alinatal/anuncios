@@ -151,7 +151,7 @@
             position:fixed;
             top: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             padding-top: 10px;
             padding-bottom: 10px;
             background-color: #3590DC !important;
