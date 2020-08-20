@@ -139,16 +139,34 @@
                             </tr>
                             <tr>
                                 <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                    <div style="font-family:helvetica;font-size:14px;line-height:1;text-align:left;color:#154954;">Nos ponemos en contacto contigo porque has subido un anuncio
-                                        <a href="{{route('ads.show', $ad)}}">{{$ad->name}}</a>.
+                                    <div style="font-family:helvetica;font-size:14px;line-height:1;text-align:left;color:#154954;">Nos ponemos en contacto contigo porque has subido el anuncio
+                                        "<a href="{{route('ads.show', $ad)}}">{{$ad->name}}</a>".
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                    <div style="font-family:helvetica;font-size:14px;line-height:1;text-align:left;color:#154954;">
                                         Si no has sido tú, puedes borrar el anuncio en el botón Borrar anuncio.
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                    <div style="font-family:helvetica;font-size:14px;line-height:1;text-align:left;color:#154954;">
                                         Si necesitas modificar el anuncio puedes modificarlo pulsando el botón Modificar anuncio.
-
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                    <div style="font-family:helvetica;font-size:14px;line-height:1;text-align:left;color:#154954;">
                                         Recuerda que estos enlaces son válidos durante 24 horas, una vez pasadas, puedes solicitar un nuevo enlace desde el apartado "<a
                                             href="{{route('my-ads')}}" target="_blank">Mis anuncios</a>" en nuestra web.
                                     </div>
                                 </td>
                             </tr>
+
                             <tr>
                                 <td align="center" vertical-align="middle" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                                     <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
@@ -157,6 +175,8 @@
                                                                                                                                                                                                                          target="_blank">
                                                     Modificar anuncio
                                                 </a> </td>
+                                        </tr>
+                                        <tr>
                                             <td align="center" bgcolor="#154954" role="presentation" style="border:none;border-radius:3px;cursor:auto;mso-padding-alt:10px 25px;background:#154954;" valign="middle"> <a href="{{$ad->getURL('destroy')}}" style="display:inline-block;background:#154954;color:#ffffff;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:3px;"
                                                                                                                                                                                                                          target="_blank">
                                                     Borrar anuncio
