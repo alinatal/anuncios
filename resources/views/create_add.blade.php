@@ -65,7 +65,7 @@
                             </div>
                             <div class="custom-control custom-radio">
 
-                                <input type="radio" name="seller_type" id="particular" value="particular" class="custom-control-input" {{(old('seller_type') == 'particular') ? 'checked' : ''}}>
+                                <input type="radio" name="seller_type" id="particular" value="particular" class="custom-control-input" {{(old('seller_type') != 'profesional') ? 'checked' : ''}}>
                                 <label for="particular" class="custom-control-label">Particular</label>
 
                             </div>
