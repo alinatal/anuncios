@@ -26,14 +26,14 @@
                     <div class="card-title"><h5>Información del producto / servicio</h5></div>
                     <hr>
                     <div class="form-group">
-                        <label for="name">Título: </label>
+                        <label for="name">Título<small class="text-danger">*</small>: </label>
                         <input type="text" id="name" name="name" placeholder="Introduce aquí el título" class="form-control @error('name') is-invalid @enderror" autocomplete="off" required value="{{old('name')}}">
                         @error('name')
                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="description">Descripción: </label>
+                        <label for="description">Descripción<small class="text-danger">*</small>: </label>
                         <!--<textarea name="description" id="description" cols="30" rows="10" placeholder="Introduce una descripción del bien o servicio que ofreces" class="form-control @error('description') is-invalid @enderror" autocomplete="off">{{old('description')}}</textarea>-->
                         <!--<textarea name="description" id="description" cols="30" rows="10" placeholder="Introduce una descripción del bien o servicio que ofreces" class="form-control @error('description') is-invalid @enderror">{{old('description')}}</textarea>-->
                         <textarea name="description" id="description" cols="30" rows="20" class="form-control"></textarea>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="form-group">
                         <fieldset>
-                            <legend>Tipo de vendedor</legend>
+                            <legend>Tipo de vendedor<small class="text-danger">*</small></legend>
                             <div class="custom-control custom-radio">
                                 <input type="radio" name="seller_type" id="profesional" value="profesional" class="custom-control-input" {{(old('seller_type') == 'profesional') ? 'checked' : ''}}>
                                 <label for="profesional" class="custom-control-label">Profesional</label>
@@ -123,14 +123,14 @@
                     <div class="card-title"><h5>Información de contacto</h5></div>
                     <hr>
                     <div class="form-group">
-                        <label for="fullName">Nombre:</label>
+                        <label for="fullName">Nombre<small class="text-danger">*</small>:</label>
                         <input type="text" id="fullName" name="fullName" class="form-control @error('fullName') is-invalid @enderror" placeholder="Como quieres que te llamen: nombre, seudónimo o empresa" required value="{{old('fullName')}}">
                         @error('fullName')
                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="email">Email:</label>
+                        <label for="email">Email<small class="text-danger">*</small>:</label>
                         <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Tu correo electrónico" required value="{{old('email')}}">
                         @error('email')
                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
@@ -148,6 +148,7 @@
 
             <button class="btn btn-success btn-block btn-lg mt-5" type="submit" id="create_ad_button" onclick="tinyMCE.triggerSave();">Crear anuncio</button>
             <p class="text-center mt-3"><small>Pulsando el botón 'Crear anuncio', confirmas que aceptas las <a href="/condiciones-de-uso" target="_blank">condiciones de uso</a> y la <a href="/politica-de-privacidad" target="_blank">política de privacidad</a> de la web</small></p>
+            <p class="text-center mt-3 small">Todos los campos marcados con el símbolo <span class="text-danger">*</span> son campos obligatorios.</p>
         </form>
     @endif
 @endsection
