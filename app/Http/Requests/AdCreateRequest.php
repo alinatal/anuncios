@@ -31,7 +31,7 @@ class AdCreateRequest extends FormRequest
             'name' => 'required|max:200',
             'description' => 'required | max:10000',
             'price' => 'required|numeric',
-            'location' => 'required',
+            'location' => 'nullable',
             'images' => 'array|max:10',
             //'images.*' => 'image | mimes:jpg,jpeg,webp,png,JPG,JPEG,WEBP,PNG | max:5120',
             'fullName' => 'required',
