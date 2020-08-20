@@ -65,7 +65,7 @@
                 </div>
                 <div class="form-group">
                     <label for="location">Ubicación: </label>
-                    <input type="text" id="location" name="location" placeholder="Donde se encuentra el bien o servicio que ofreces" class="form-control @error('location') is-invalid @enderror" value="@if(old('location')){{old('location')}} @else {{$ad->location}} @endif">
+                    <input type="text" id="location" name="location" placeholder="Donde se encuentra el bien o servicio que ofreces" class="form-control @error('location') is-invalid @enderror" value="@if(old('location')){{old('location')}} @elseif($ad->location) {{$ad->location}} @endif">
                     @error('location')
                     <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                     @enderror
@@ -138,7 +138,7 @@
                 </div>
                 <div class="form-group">
                     <label for="phone">Teléfono:</label>
-                    <input type="phone" id="phone" name="phone" class="form-control @error('phone') is-invalid @enderror" placeholder="Tu numero de telefono" value="@if(old('phone')){{old('phone')}}@else{{$ad->user->phone}}@endif">
+                    <input type="phone" id="phone" name="phone" class="form-control @error('phone') is-invalid @enderror" placeholder="Tu numero de telefono" value="@if(old('phone')){{old('phone')}}@elseif($ad->user->phone){{$ad->user->phone}}@endif">
                     @error('phone')
                     <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                     @enderror
