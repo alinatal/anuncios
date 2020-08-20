@@ -195,7 +195,7 @@
         }
 
         .selector-holder span{
-            font-size: 0.97rem;
+            font-size: 0.95rem;
             text-align: center;
             font-weight: 900;
         }
