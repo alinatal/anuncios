@@ -191,7 +191,7 @@
                             <tr>
                                 <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                                     <div style="font-family:helvetica;font-size:14px;line-height:1;text-align:left;color:#154954;">
-                                        Recuerda que estos enlaces son válidos durante 24 horas, una vez pasadas, puedes solicitar un nuevo enlace desde el apartado "<a
+                                        Si quieres ver todos tus anuncios, puedes acceder al apartado "<a
                                             href="{{route('my-ads', ['email' => $user->email])}}" target="_blank">Mis anuncios</a>" en nuestra web.
                                     </div>
                                 </td>
