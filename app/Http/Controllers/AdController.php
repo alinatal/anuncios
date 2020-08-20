@@ -6,6 +6,7 @@ use App\Ad;
 use App\Http\Requests\AdCreateRequest;
 use App\Http\Requests\AdUpdateRequest;
 use App\Mail\AdExpiresNotification;
+use App\Mail\AdStoredNotification;
 use App\Mail\AdUserRequest;
 use App\User;
 use App\Category;
@@ -75,7 +76,7 @@ class AdController extends Controller
                 ['ip' => $request->ip(), 'user_id' => $user->id, 'images' => json_encode($paths)]
             );
 
-        Mail::to($user->email)->send(new AdExpiresNotification($ad, $user));
+        Mail::to($user->email)->send(new AdStoredNotification($ad, $user));
 
 
         //return response(route('ads.show', ['ad' => $ad->slug])->withMessage('Anuncio creado correctamente. Le recordamos que su anuncio será eliminado en 60 días si no se renueva. Recibirá instrucciones para la renovación días antes de que caduque.'), 200);
