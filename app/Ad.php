@@ -55,7 +55,7 @@ class Ad extends Model
     public function getURL($action){
         return URL::temporarySignedRoute(
             'ads.'.$action,
-            now()->addDays(1),
+            now()->addDays(55),
             ['ad' => $this]
         );
     }
