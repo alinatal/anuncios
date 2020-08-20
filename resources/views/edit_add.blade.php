@@ -195,7 +195,7 @@
                     img.src = event.target.result;
                     img.onload = () => {
                         const elem = document.createElement('canvas');
-                        const width = 500;
+                        const width = 800;
                         const scaleFactor = width / img.width;
                         const height = img.height * scaleFactor;
                         elem.width = width;
