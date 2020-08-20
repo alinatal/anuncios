@@ -88,6 +88,7 @@
                     </a>
                 </div>
             </div>
+            @if($ad->location)
             <div class="card mt-3">
                 <div class="card-body">
                     <h5 class="card-title">Ubicación</h5>
@@ -97,6 +98,7 @@
                     <a href="https://www.google.com/maps/search/{{urlencode($ad->location)}}" target="_blank" class="btn btn-success btn-block mt-2">Ver en el mapa</a>
                 </div>
             </div>
+            @endif
 
 
         </div>

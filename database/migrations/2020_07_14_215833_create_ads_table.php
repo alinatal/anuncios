@@ -20,7 +20,7 @@ class CreateAdsTable extends Migration
             $table->json('images')->nullable();
             $table->decimal('price');
             $table->text('description');
-            $table->text('location');
+            $table->text('location')->nullable();
             $table->ipAddress('ip');
             $table->enum('seller_type',['profesional', 'particular']);
             $table->boolean('expire_notification')->default(false);
