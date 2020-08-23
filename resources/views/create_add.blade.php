@@ -103,7 +103,7 @@
                             <label class="btn btn-block btn-primary mt-2">
                                 <input type="file" accept="image/*" id="images" {{--name="images[]"--}} style="display: none;" multiple>
                                 <i class="fas fa-plus"></i>
-                                <span id="file_text">Añadir Imagenes</span><!--<label class="custom-file-label" for="customFile">Imagenes del producto / servicio</label>-->
+                                <span id="file_text">Añadir Imagenes (máximo 10)</span><!--<label class="custom-file-label" for="customFile">Imagenes del producto / servicio</label>-->
                             </label>
                             <div id="images_error" class="alert alert-danger mt-2 mb-2" style="display: none;">No pueden añadir más imagenes, el numero máximo es 10</div>
                         </div>

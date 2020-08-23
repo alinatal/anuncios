@@ -254,7 +254,7 @@
                             }
                             if(images.childElementCount == 0){
                                 var file_text = document.getElementById('file_text');
-                                file_text.innerHTML = 'Añadir imagenes';
+                                file_text.innerHTML = 'Añadir imagenes (máximo 10)';
                             }
 
                         }
@@ -314,7 +314,7 @@
             }
             if(images.childElementCount == 0){
                 var file_text = document.getElementById('file_text');
-                file_text.innerHTML = 'Añadir imagenes';
+                file_text.innerHTML = 'Añadir imagenes (máximo 10)';
             }
             $('.img-thumbnail').magnificPopup({
                 type: 'image',
