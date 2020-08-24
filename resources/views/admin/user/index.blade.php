@@ -12,6 +12,9 @@
 @endsection
 
 @section('content')
+    <div class="alert alert-danger" role="alert">
+        NOTA: Si se borra un usuario, se eliminarán todos sus anuncios
+    </div>
     @if($users->count())
         <div class="table-responsive">
             <table class="table table-striped bg-white table-hover">
