@@ -7,7 +7,7 @@
         <a class="btn btn-sm btn-secondary ml-3" href="{{route('admin.user.index')}}">Volver atrás</a>
     @endif
     <form action="" class="d-inline-flex input-group-sm">
-        <input type="text" name="name" class="form-control d-inline-flex" placeholder="Buscar por nombre" value="{{app('request')->input('name')}}">
+        <input type="text" name="name" class="form-control d-inline-flex" placeholder="Buscar por nombre o email" value="{{app('request')->input('name')}}">
     </form>
 @endsection
 
