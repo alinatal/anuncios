@@ -42,7 +42,7 @@
     <div class="col-md-3 p-0">
         <a href="{{$link}}">
             @if(true || $image != '/img/no-image.png')
-            <img src="{{asset($image)}}" class="img-thumbnail w-100 border-0 bg-white" alt="{{$name}}" onerror="this.onerror=null; this.src='{{asset('img/no-image.png')}}'">
+            <img src="{{asset($image)}}" class="img-thumbnail w-100 border-0 bg-white" alt="{{$name}}" {{--onerror="this.onerror=null; this.src='{{asset('img/no-image.png')}}'"--}}>
             @endif
         </a>
         @if($price && ((float) $price) != 0.00)

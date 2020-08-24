@@ -16,7 +16,6 @@ class UserController extends Controller
             $users = User::where('name','like', '%'.$request->name.'%')->orWhere('email', 'like', '%'.$request->name.'%')->paginate(10);
         }
         else $users = User::orderBy('admin', 'desc')->orderBy('updated_at', 'desc')->orderBy('id','desc')->paginate(10);
-        //Session::flash('error', 'NOTA: Si se borra un usuario, se eliminarán todos sus anuncios');
         return view('admin.user.index')->withUsers($users);
     }
 
