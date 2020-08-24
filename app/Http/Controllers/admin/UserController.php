@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function index(Request $request){
         if(isset($request->name)){
-            $users = User::where('name','like', '%'.$request->name.'%')->paginate(10);
+            $users = User::where('name','like', '%'.$request->name.'%')->orWhere('email', 'like', '%'.$request->name.'%')->paginate(10);
         }
         else $users = User::orderBy('admin', 'desc')->orderBy('updated_at', 'desc')->orderBy('id','desc')->paginate(10);
         return view('admin.user.index')->withUsers($users);
