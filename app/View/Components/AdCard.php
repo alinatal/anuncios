@@ -23,9 +23,8 @@ class AdCard extends Component
         }
         $this->image = $image;
         $this->name = $name;
-        $pos = strpos($description, ' ', 240);
-        $this->description = substr($description, 0, $pos);/*Str::limit($description, $limit = 240, $end = '...');*/
-        if(strlen($this->description)<strlen($description)) $this->description .= '...';
+        $this->description = Str::limit($description, 240, '...');
+        $this->description = Str::words($this->description, str_word_count($this->description)-1);
         $this->price = $price;
         $this->actions = $actions;
         $this->lastUpdated = date('d/m/Y H:i:s', strtotime($lastUpdated));
