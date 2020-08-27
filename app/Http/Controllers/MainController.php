@@ -38,7 +38,7 @@ class MainController extends Controller
         }
 
         // Si los anuncios han caducado los borramos
-        $ads = Ad::where('updated_at', '>=', now()->subDays(60))->where('expire_notification', '=', true)->get();
+        $ads = Ad::where('updated_at', '<=', now()->subDays(60))->where('expire_notification', '=', true)->get();
         foreach ($ads as $ad){
             $ad->delete();
         }
