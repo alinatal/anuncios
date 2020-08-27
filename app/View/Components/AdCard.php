@@ -23,9 +23,6 @@ class AdCard extends Component
         }
         $this->image = $image;
         $this->name = $name;
-        //$this->description = Str::limit($description, 240, '...');
-        //print_r(str_word_count($this->description));
-        //$this->description = Str::words($this->description, str_word_count($this->description)-2);
         $this->description = Str::words($description, 50);
         $this->price = $price;
         $this->actions = $actions;
