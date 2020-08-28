@@ -53,17 +53,21 @@
                     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="4000">
                         <div class="carousel-inner">
                             @foreach($sponsorCard->shuffle() as $key => $item)
-                                <div class="carousel-item {{(!$key) ? 'active' : ''}}">
-                                    <a href="@if($item->link != null){{$item->link}}@else#@endif" @if($item->link != null) target="_blank" @endif>
-                                        <img src="{{$item->image}}" class="d-block w-100" alt="...">
-                                        {{--@if($item->description != null)
-                                        <div class="carousel-caption d-none d-md-block bg-dark text-white rounded" style="opacity: 0.7">
-                                            <h5><a href="@if($item->link != null){{$item->link}}@else#@endif">{{$item->name}}</a></h5>
-                                            <p>{{$item->description}}</p>
-                                        </div>
-                                        @endif--}}
-                                    </a>
-                                </div>
+                                @if($item->image && $item->image_sm)
+                                    <div class="carousel-item {{(!$key) ? 'active' : ''}}">
+                                        <a href="@if($item->link != null){{$item->link}}@else#@endif" @if($item->link != null) target="_blank" @endif>
+                                            <picture>
+                                                <source media="(min-width:768px)" srcset="{{secure_asset($item->image)}}">
+                                                <img src="{{secure_asset($item->image_sm)}}" class="d-block w-100">
+                                            </picture>                                            {{--@if($item->description != null)
+                                            <div class="carousel-caption d-none d-md-block bg-dark text-white rounded" style="opacity: 0.7">
+                                                <h5><a href="@if($item->link != null){{$item->link}}@else#@endif">{{$item->name}}</a></h5>
+                                                <p>{{$item->description}}</p>
+                                            </div>
+                                            @endif--}}
+                                        </a>
+                                    </div>
+                                @endif
                             @endforeach
                         </div>
                     </div>
@@ -78,17 +82,21 @@
                         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="4000">
                             <div class="carousel-inner">
                                 @foreach($sponsorCard->shuffle() as $key => $item)
-                                    <div class="carousel-item {{(!$key) ? 'active' : ''}}">
-                                        <a href="@if($item->link != null){{$item->link}}@else#@endif" @if($item->link != null) target="_blank" @endif>
-                                            <img src="{{$item->image}}" class="d-block w-100" alt="...">
-                                            {{--@if($item->description != null)
-                                            <div class="carousel-caption d-none d-md-block bg-dark text-white rounded" style="opacity: 0.7">
-                                                <h5><a href="@if($item->link != null){{$item->link}}@else#@endif">{{$item->name}}</a></h5>
-                                                <p>{{$item->description}}</p>
-                                            </div>
-                                            @endif--}}
-                                        </a>
-                                    </div>
+                                    @if($item->image && $item->image_sm)
+                                        <div class="carousel-item {{(!$key) ? 'active' : ''}}">
+                                            <a href="@if($item->link != null){{$item->link}}@else#@endif" @if($item->link != null) target="_blank" @endif>
+                                                <picture>
+                                                    <source media="(min-width:768px)" srcset="{{secure_asset($item->image)}}">
+                                                    <img src="{{secure_asset($item->image_sm)}}" class="d-block w-100">
+                                                </picture>                                              {{--@if($item->description != null)
+                                                <div class="carousel-caption d-none d-md-block bg-dark text-white rounded" style="opacity: 0.7">
+                                                    <h5><a href="@if($item->link != null){{$item->link}}@else#@endif">{{$item->name}}</a></h5>
+                                                    <p>{{$item->description}}</p>
+                                                </div>
+                                                @endif--}}
+                                            </a>
+                                        </div>
+                                    @endif
                                 @endforeach
                             </div>
                         </div>

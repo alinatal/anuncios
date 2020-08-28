@@ -59,7 +59,13 @@
         <div class="form-group">
             <div class="custom-file">
                 <input type="file" class="custom-file-input" id="image" name="image">
-                <label class="custom-file-label" for="customFile">Escoge una imagen</label>
+                <label class="custom-file-label" for="image">Escoge una imagen para ordenador</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="image_sm" name="image_sm">
+                <label class="custom-file-label" for="image_sm">Escoge una imagen para móvil</label>
             </div>
         </div>
 

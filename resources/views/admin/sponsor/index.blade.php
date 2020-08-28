@@ -21,11 +21,12 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Imagen</th>
+                    <th scope="col">Imagen Móvil</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Descripción</th>
                     <th scope="col">Zona</th>
                     <th scope="col">Alternativa</th>
-                    <th scope="col">Link</th>
+{{--                    <th scope="col">Link</th>--}}
                     <th scope="col">Acciones</th>
                 </tr>
                 </thead>
@@ -33,7 +34,8 @@
                 @foreach($sponsors as $sponsor)
                     <tr>
                         <th scope="row">{{$sponsor->id}}</th>
-                        <td><img src="{{asset($sponsor->image)}}" alt="{{$sponsor->name}}" class="img-thumbnail" width="80"></td>
+                        <td><a href="{{$sponsor->link}}" target="_blank"><img src="@if($sponsor->image){{secure_asset($sponsor->image)}}@else{{secure_asset('img/no-image.png')}}@endif" alt="{{$sponsor->name}}" class="img-thumbnail" width="80"></a></td>
+                        <td><a href="{{$sponsor->link}}" target="_blank"><img src="@if($sponsor->image_sm){{secure_asset($sponsor->image_sm)}}@else{{secure_asset('img/no-image.png')}}@endif" alt="{{$sponsor->name}}" class="img-thumbnail" width="80"></a></td>
                         <td>{{$sponsor->name}}</td>
                         <td>{{Str::limit($sponsor->description, $limit = 20, $end = '...')}}</td>
                         <td>
@@ -46,7 +48,7 @@
                             @endif
                         </td>
                         <td>{{($sponsor->alternative) ? 'Si' : 'No'}}</td>
-                        <td><a href="{{$sponsor->link}}">{{Str::limit($sponsor->link, $limit = 20, $end = '...')}}</a></td>
+{{--                        <td><a href="{{$sponsor->link}}">{{Str::limit($sponsor->link, $limit = 20, $end = '...')}}</a></td>--}}
                         <td>
                             <div class="row">
                                 <div class="col-md-6">

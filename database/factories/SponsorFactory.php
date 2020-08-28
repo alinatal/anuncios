@@ -25,7 +25,8 @@ $factory->define(Sponsor::class, function (Faker $faker) {
         'name' => $faker->unique()->words(rand(2, 3), true),
         'description' => $faker->realText(45),
         'link' => $faker->url,
-        'image' => $image,
+        'image' => $faker->randomElement([$image, null]),
+        'image_sm' => $faker->randomElement([$image, null]),
         'zone' => $zone,
         'alternative' => $faker->boolean(20)
 

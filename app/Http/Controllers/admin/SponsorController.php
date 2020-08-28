@@ -68,6 +68,15 @@ class SponsorController extends Controller
             $sponsor->image = $image;
             $sponsor->save();
         }
+        if($request->hasFile('image_sm')){
+            $image = '/'.Storage::putFileAs('/images/sponsors', $request->file('image_sm'), $sponsor->id.'-sm.'.$request->file('image_sm')->getClientOriginalExtension());
+            $sponsor->image_sm = $image;
+            $sponsor->save();
+        }
+
+        if($sponsor->image == null) $sponsor->image = $sponsor->image_sm;
+        else if($sponsor->image_sm == null) $sponsor->image_sm = $sponsor->image;
+        $sponsor->save();
 
         return redirect()->back()->withMessage('Patrocinador creado correctamente');
     }
@@ -104,18 +113,32 @@ class SponsorController extends Controller
      */
     public function update(Request $request, Sponsor $sponsor)
     {
+        $data = $request->except(['_token', '_method', 'image', 'image_sm']);
         $image = $sponsor->image;
+        $image_sm = $sponsor->image_sm;
         if($request->hasFile('image')){
             Storage::delete($sponsor->image);
             $path = Storage::putFileAs('/images/sponsors', $request->file('image'), $sponsor->id.'.'.$request->file('image')->getClientOriginalExtension());
             $image = '/'.$path;
+            $data += ['image' => $image];
         }
+        if($request->hasFile('image_sm')){
+            Storage::delete($sponsor->image_sm);
+            $path = Storage::putFileAs('/images/sponsors', $request->file('image_sm'), $sponsor->id.'-sm.'.$request->file('image_sm')->getClientOriginalExtension());
+            $image_sm = '/'.$path;
+            $data += ['image_sm' => $image_sm];
+        }
+        $sponsor->update($data);
 
-        if(strlen($sponsor->image) && !$request->hasFile('image')){
+        if($sponsor->image == null) $sponsor->image = $sponsor->image_sm;
+        else if($sponsor->image_sm == null) $sponsor->image_sm = $sponsor->image;
+        $sponsor->save();
+
+       /* if(strlen($sponsor->image) && !$request->hasFile('image')){
             $data = $request->except(['_token', '_method', 'image']);
         }
         else $data = $request->except(['_token', '_method', 'image']) + ['image' => $image];
-        $sponsor->update($data);
+        $sponsor->update($data);*/
 
         return redirect()->back()->withMessage('Patrocinador creado correctamente');
     }

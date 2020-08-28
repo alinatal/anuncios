@@ -15,22 +15,29 @@
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="4000">
             <div class="carousel-inner">
                 @foreach($carousel as $key => $item)
-                <div class="carousel-item {{(!$key) ? 'active' : ''}}">
-                    @if($item->link != null)
-                        <a href="{{$item->link}}" target="_blank">
-                    @endif
-                    <img src="{{$item->image}}" class="d-block w-100">
+                    @if($item->image && $item->image_sm)
+                        <div class="carousel-item {{(!$key) ? 'active' : ''}}">
+                            @if($item->link != null)
+                                <a href="{{$item->link}}" target="_blank">
+                            @endif
 
-                    {{--@if($item->description != null)
-                        <div class="carousel-caption d-none d-md-block bg-dark text-white rounded-pill" style="opacity: 0.7">
-                            <h5><a href="@if($item->link != null){{$item->link}}@else#@endif">{{$item->name}}</a></h5>
-                            <p>{{$item->description}}</p>
+
+                            <picture>
+                                <source media="(min-width:768px)" srcset="{{secure_asset($item->image)}}">
+                                <img src="{{secure_asset($item->image_sm)}}" class="d-block w-100">
+                            </picture>
+
+                                        {{--@if($item->description != null)
+                                            <div class="carousel-caption d-none d-md-block bg-dark text-white rounded-pill" style="opacity: 0.7">
+                                                <h5><a href="@if($item->link != null){{$item->link}}@else#@endif">{{$item->name}}</a></h5>
+                                                <p>{{$item->description}}</p>
+                                            </div>
+                                        @endif--}}
+                            @if($item->link != null)
+                                </a>
+                            @endif
                         </div>
-                    @endif--}}
-                    @if($item->link != null)
-                        </a>
                     @endif
-                </div>
                 @endforeach
             </div>
         </div>
@@ -111,9 +118,14 @@
                             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="4000">
                                 <div class="carousel-inner">
                                     @foreach($sponsorCard->shuffle() as $key => $item)
+                                        @if($item->image && $item->image_sm)
                                         <div class="carousel-item {{(!$key) ? 'active' : ''}}">
                                             <a href="@if($item->link != null){{$item->link}}@else#@endif" @if($item->link!=null) target="_blank"@endif>
-                                                <img src="{{$item->image}}" class="d-block w-100" alt="{{$item->name}}">
+                                                    <picture>
+                                                        <source media="(min-width:768px)" srcset="{{secure_asset($item->image)}}">
+                                                        <img src="{{secure_asset($item->image_sm)}}" class="d-block w-100">
+                                                    </picture>
+{{--                                                <img src="{{$item->image}}" class="d-block w-100" alt="{{$item->name}}">--}}
                                                 {{--@if ($item->description != null)
                                                 <div class="carousel-caption d-none d-md-block bg-dark text-white rounded" style="opacity: 0.7">
                                                     <h5><a href="@if($item->link != null){{$item->link}}@else#@endif">{{$item->name}}</a></h5>
@@ -122,6 +134,7 @@
                                                 @endif--}}
                                             </a>
                                         </div>
+                                        @endif
                                     @endforeach
                                 </div>
                             </div>
