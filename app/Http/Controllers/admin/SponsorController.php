@@ -58,8 +58,6 @@ class SponsorController extends Controller
     public function store(Request $request, Sponsor $sponsor)
     {
 
-
-
         $sponsor = new Sponsor($request->except(['_method', '_token']));
         $sponsor->save();
 
@@ -130,9 +128,9 @@ class SponsorController extends Controller
         }
         $sponsor->update($data);
 
-        if($sponsor->image == null) $sponsor->image = $sponsor->image_sm;
+        /*if($sponsor->image == null) $sponsor->image = $sponsor->image_sm;
         else if($sponsor->image_sm == null) $sponsor->image_sm = $sponsor->image;
-        $sponsor->save();
+        $sponsor->save();*/
 
        /* if(strlen($sponsor->image) && !$request->hasFile('image')){
             $data = $request->except(['_token', '_method', 'image']);

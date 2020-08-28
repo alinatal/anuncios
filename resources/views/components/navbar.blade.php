@@ -81,6 +81,11 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <x-list-item :list="config('settings.site_primary_menu')" :bullet="false" :navbar="true"></x-list-item>
+                @if(auth()->check() && auth()->user()->admin)
+                    <li class="nav-item">
+                        <a href="{{route('admin.dashboard')}}" class="nav-link">Administrar Web</a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>
