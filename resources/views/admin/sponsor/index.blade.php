@@ -34,8 +34,8 @@
                 @foreach($sponsors as $sponsor)
                     <tr>
                         <th scope="row">{{$sponsor->id}}</th>
-                        <td><a href="@if(strlen($sponsor->link)){{$sponsor->link}}@else#@endif" target="_blank"><img src="@if($sponsor->image){{secure_asset($sponsor->image)}}@else{{secure_asset('img/no-image.png')}}@endif" alt="{{$sponsor->name}}" class="img-thumbnail" width="80"></a></td>
-                        <td><a href="@if(strlen($sponsor->link)){{$sponsor->link}}@else#@endif" target="_blank"><img src="@if($sponsor->image_sm){{secure_asset($sponsor->image_sm)}}@else{{secure_asset('img/no-image.png')}}@endif" alt="{{$sponsor->name}}" class="img-thumbnail" width="80"></a></td>
+                        <td><a href="@if(strlen($sponsor->link)){{$sponsor->link}}@else#@endif" @if(strlen($sponsor->link))target="_blank"@endif><img src="@if($sponsor->image){{secure_asset($sponsor->image)}}@else{{secure_asset('img/no-image.png')}}@endif" alt="{{$sponsor->name}}" class="img-thumbnail" width="80"></a></td>
+                        <td><a href="@if(strlen($sponsor->link)){{$sponsor->link}}@else#@endif"  @if(strlen($sponsor->link))target="_blank" @endif><img src="@if($sponsor->image_sm){{secure_asset($sponsor->image_sm)}}@else{{secure_asset('img/no-image.png')}}@endif" alt="{{$sponsor->name}}" class="img-thumbnail" width="80"></a></td>
                         <td>{{$sponsor->name}}</td>
                         <td>{{Str::limit($sponsor->description, $limit = 20, $end = '...')}}</td>
                         <td>
