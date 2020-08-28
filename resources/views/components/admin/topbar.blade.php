@@ -12,6 +12,9 @@
     <ul class="navbar-nav ml-auto">
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
+            <a href="{{route('main')}}" class="btn btn-secondary">Volver a la web</a>
+        </li>
+        <li class="nav-item dropdown no-arrow">
             <form action="{{route('logout')}}" method="POST">
                 @method('POST')
                 @csrf
