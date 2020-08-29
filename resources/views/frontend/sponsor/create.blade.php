@@ -36,7 +36,7 @@
 
         <div class="form-group mt-4">
             <label for="web">Página web (opcional)</label>
-            <input type="text" class="form-control" name="web" id="web" placeholder="Introduza su web si quiere que la promocionemos junto a su anuncio">
+            <input type="text" class="form-control" name="web" id="web" placeholder="Introduzca su web si quiere que la promocionemos junto a su anuncio">
         </div>
 
         <div class="form-group mt-4">
@@ -54,10 +54,11 @@
                 <a href="mailto:{{config('settings.site_email')}}">
                     {{config('settings.site_email')}}
                 </a>
-                el anuncio que quiere poner, el tamaño debe de ser de
-                1200 x 450 pixeles, o si lo prefiere envíenos su logotipo
-                con una descripción de lo que quiere poner y nosotros se
-                lo diseñamos.
+                el anuncio que quiere poner, debe enviarnos el anuncio en
+                dos formatos, una imagen para verisón móvil de 1080 x 1080 pixeles
+                y otra imagen para la versión de ordenador de 1200 x 450 pixeles,
+                o si lo prefiere envíenos su logotipo  con una descripción
+                de lo que quiere poner y nosotros se lo diseñamos.
             </small>
         </p>
 
@@ -66,19 +67,19 @@
 
         <div class="form-group mt-4">
             <label for="full_name">Nombre fiscal</label>
-            <input type="text" class="form-control" name="full_name" id="full_name" placeholder="Introduza su nombre fiscal" required>
+            <input type="text" class="form-control" name="full_name" id="full_name" placeholder="Introduzca su nombre fiscal" required>
         </div>
         <div class="form-group mt-4">
             <label for="address">Dirección</label>
-            <input type="text" class="form-control" name="address" id="address" placeholder="Introduza su dirección" required>
+            <input type="text" class="form-control" name="address" id="address" placeholder="Introduzca su dirección" required>
         </div>
         <div class="form-group mt-4">
             <label for="address">Correo electrónico</label>
-            <input type="email" class="form-control" name="email" id="email" placeholder="Introduza su email" required>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Introduzca su email" required>
         </div>
         <div class="form-group mt-4">
             <label for="phone">Teléfono</label>
-            <input type="tel" class="form-control" name="phone" id="phone" placeholder="Introduza su teléfono" required>
+            <input type="tel" class="form-control" name="phone" id="phone" placeholder="Introduzca su teléfono" required>
         </div>
         <div class="form-group mt-4">
             <label for="city">Código Postal y Localidad</label>

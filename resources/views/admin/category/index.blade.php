@@ -110,7 +110,7 @@
             </table>
         </div>
 
-        {!! $categories !!}
+        {!! $categories->appends(request()->input())->links() !!}
     @else
         <p class="text-muted">No se encontraron categorías</p>
     @endif
