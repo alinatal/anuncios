@@ -11,7 +11,7 @@ class SponsorContract extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $payment, $description, $web, $fullName, $address, $email, $phone, $city, $bankAccount, $cif;
+    public $payment, $description, $web, $fullName, $address, $email, $phone, $city, $bankAccount, $cif, $comment;
 
     /**
      * Create a new message instance.
@@ -30,6 +30,7 @@ class SponsorContract extends Mailable
         $this->city = $data['city'];
         $this->bankAccount = $data['bank_account'];
         $this->cif = $data['cif'];
+        $this->comment = $data['comment'];
     }
 
     /**

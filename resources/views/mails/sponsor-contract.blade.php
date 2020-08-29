@@ -151,11 +151,20 @@
                                     <h3>Datos del anuncio</h3>
                                     <ul>
                                         <li>Tipo de pago: {{$payment}}</li>
+                                        @if(strlen($description))
                                         <li>Descripción: {{$description}}</li>
+                                        @endif
+                                        @if(strlen($description))
                                         <li>Web: {{$web}}</li>
+                                        @endif
                                         <li>CIF: {{$cif}}</li>
                                         <li>Cuenta Bancaria: {{$bankAccount}}</li>
-                                    </ul></div>
+                                    </ul>
+                                    @if(strlen($comment))
+                                    <h3>Observaciones</h3>
+                                    <p>{{$comment}}</p>
+                                    @endif
+                                    </div>
                                 </td>
                             </tr>
                             <tr>

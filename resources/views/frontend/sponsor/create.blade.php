@@ -94,6 +94,11 @@
             <input type="text" class="form-control" name="bank_account" id="bank_account" placeholder="Número de cuenta para el pago de los recibos" required>
         </div>
 
+        <div class="form-group mt-4">
+            <label class="d-block h4" for="comment">Observaciones</label>
+            <textarea rows="5" class="form-control" name="comment" id="comment" placeholder="Comentanos cualquier duda o información que consideres relevante"></textarea>
+        </div>
+
         <div class="form-check mt-4">
             <input class="form-check-input" type="checkbox" value="" id="terms" onchange="activateButton(this)">
             <label class="form-check-label" for="terms">
