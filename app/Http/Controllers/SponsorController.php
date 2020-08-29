@@ -32,10 +32,11 @@ class SponsorController extends Controller
                 <a href="mailto:'.config('settings.site_email').'">
                     '.config('settings.site_email').'
                 </a>
-                el anuncio que quiere poner, el tamaño debe de ser de
-                1200 x 450 pixeles, o si lo prefiere envíenos su logotipo
-                con una descripción de lo que quiere poner y nosotros se
-                lo diseñamos.
+                el anuncio que quiere poner, debe enviarnos el anuncio en
+                dos formatos, una imagen para verisón móvil de 1080 x 1080 pixeles
+                y otra imagen para la versión de ordenador de 1200 x 450 pixeles,
+                o si lo prefiere envíenos su logotipo  con una descripción
+                de lo que quiere poner y nosotros se lo diseñamos.
 
         </p>');
     }
