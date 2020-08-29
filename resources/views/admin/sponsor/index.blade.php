@@ -24,7 +24,7 @@
                     <th scope="col">Imagen Móvil</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Descripción</th>
-                    <th scope="col">Zona</th>
+                    <th scope="col"><p class="m-0 text-center">Zona</p></th>
                     <th scope="col">Alternativa</th>
 {{--                    <th scope="col">Link</th>--}}
                     <th scope="col">Acciones</th>
@@ -40,11 +40,13 @@
                         <td>{{Str::limit($sponsor->description, $limit = 20, $end = '...')}}</td>
                         <td>
                             @if($sponsor->zone == 'ads')
-                                Anuncios
+                                <p class="m-0 text-center">Anuncios</p>
                             @elseif($sponsor->zone == 'carousel')
-                                Carrusel
+                                <p class="m-0 text-center">Carrusel</p>
                             @else
-                                {{\App\Category::where('slug', explode('.', $sponsor->zone)[1])->first()->name}}
+                                @php($zone = \App\Category::where('slug', explode('.', $sponsor->zone)[1])->first())
+                                <p class="text-center m-0">@if($zone->parent) <small class="text-warning text-center">{{$zone->parent->name}}</small> <br>@endif {{$zone->name}}</p>
+
                             @endif
                         </td>
                         <td>{{($sponsor->alternative) ? 'Si' : 'No'}}</td>
