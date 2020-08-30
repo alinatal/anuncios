@@ -143,6 +143,7 @@
                     <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                     @enderror
                 </div>
+                <p class="small text-danger text-center"><span class="text-uppercase">Aviso: </span>La modificación de los datos de contacto de este anuncio modificará los datos de contacto de cualquier anuncio asociado a su cuenta de correo electrónico.</p>
             </div>
         </div>
 

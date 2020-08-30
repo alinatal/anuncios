@@ -64,12 +64,19 @@ class AdController extends Controller
         else $paths = ['/img/no-image.png'];
         //return $request;
 
-        $user = User::updateOrCreate(['email' => $request->email], [
+        $user = User::firstOrCreate(['email' => $request->email], [
                 'name' => $request->fullName,
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'password' => Hash::make(Str::random(8))
             ]);
+
+//        $user = User::updateOrCreate(['email' => $request->email], [
+//                'name' => $request->fullName,
+//                'email' => $request->email,
+//                'phone' => $request->phone,
+//                'password' => Hash::make(Str::random(8))
+//            ]);
         $ad = Ad::create(
                 $request->except(['_method', '_token', 'images'])
                 +

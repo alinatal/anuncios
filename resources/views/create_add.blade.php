@@ -398,4 +398,30 @@
         ;
     </script>
 
+    <script>
+        function delay(callback, ms) {
+            var timer = 0;
+            return function() {
+                var context = this, args = arguments;
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    callback.apply(context, args);
+                }, ms || 0);
+            };
+        }
+        $('#email').keyup(delay(function(){
+           $.getJSON('{{request()->root()}}'+'/api/user/'+$(this).val(), function (result, status) {
+
+                   $('#fullName').val(result.name);
+                   $('#phone').val(result.phone);
+                   $('#fullName').attr('readonly', true);
+                   $('#phone').attr('readonly', true);
+
+           }).fail(function(){
+               $('#fullName').attr('readonly', false);
+               $('#phone').attr('readonly', false);
+           });
+        }, 750));
+    </script>
+
 @endsection

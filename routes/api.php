@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::post('deploy', 'DeployController@deploy');
+Route::get('user/{user:email}', 'UserController@show')->name('user.show');
