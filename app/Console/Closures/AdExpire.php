@@ -26,7 +26,7 @@ class AdExpire{
         }
 
         // Si los anuncios han caducado los borramos
-        $ads = Ad::where('updated_at', '>=', now()->subDays(60))->where('expire_notification', '=', true)->get();
+        $ads = Ad::where('updated_at', '<=', now()->subDays(64))->where('expire_notification', '=', true)->get();
         foreach ($ads as $ad){
             $ad->delete();
         }
