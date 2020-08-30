@@ -143,6 +143,7 @@
                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                         @enderror
                     </div>
+                    <p id="contact_info_message" class="small text-danger text-center" style="display: none;">Los  datos de su teléfono han sido extraidos de su ficha de usuario y no se pueden cambiar desde esta sección, si desea cambiar debe ir a la opción <a href="{{route('my-ads')}}" target="_blank" id="my-ads-section">Mis anuncios</a> y proceder a modificarlo en cualquiera de ellos. El cambio se aplicará sobre todos sus anuncios.</p>
                 </div>
             </div>
 
@@ -416,10 +417,16 @@
                    $('#phone').val(result.phone);
                    $('#fullName').attr('readonly', true);
                    $('#phone').attr('readonly', true);
+                   $('#contact_info_message').show();
+                   var href = $('#my-ads-section').attr('href');
+                   href = href.split('?')[0];
+                   $('#my-ads-section').attr('href', href+'?email='+result.email);
+
 
            }).fail(function(){
                $('#fullName').attr('readonly', false);
                $('#phone').attr('readonly', false);
+               $('#contact_info_message').hide();
            });
         }, 750));
     </script>
