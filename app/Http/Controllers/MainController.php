@@ -21,7 +21,7 @@ class MainController extends Controller
     public function index()
     {
 
-        /// Avisamos a los usuarios que caducarán próximamente
+        /*/// Avisamos a los usuarios que caducarán próximamente
         $user_ads = DB::table('ads')
             ->join('users', 'ads.user_id', '=', 'users.id')
             ->where('ads.updated_at', '<=', now()->subDays(62))
@@ -41,7 +41,7 @@ class MainController extends Controller
         $ads = Ad::where('updated_at', '>=', now()->subDays(60))->where('expire_notification', '=', true)->get();
         foreach ($ads as $ad){
             $ad->delete();
-        }
+        }*/
 
 
         //Obtenemos lista de sponsors para la página principal

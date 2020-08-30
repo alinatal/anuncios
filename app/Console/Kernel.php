@@ -31,6 +31,7 @@ class Kernel extends ConsoleKernel
     {
 
         $schedule->call(new AdStats)->monthly()->evenInMaintenanceMode();
+        $schedule->call(new AdExpire)->everyMinute()->evenInMaintenanceMode();
     }
 
     /**
