@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Closures\AdStats;
+use App\Console\Closures\AdExpire;
 use App\Mail\AdExpiresNotification;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
