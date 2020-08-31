@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use App\Ad;
-use http\Client\Curl\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -28,6 +27,7 @@ class AdUpdateRequest extends FormRequest
     {
         $ad = $this->ad;
         $this->redirect = $ad->getURL('edit');
+        dd($this->email);
         $user = User::where('email', $this->email)->first();
         return [
             'name' => 'required|max:200',
