@@ -16,8 +16,9 @@
         </div>
         <div class="col-4"></div>
     </div>
-    <p class="text-muted text-center">Tu nuevo portal de anuncios gratis en Lucena y comarca, para particulares y profesionales</p>
-    <p class="text-muted text-center">Disponible a partir del <strong>1 de Septiembre</strong>.</p>
+    {{--<p class="text-muted text-center">Tu nuevo portal de anuncios gratis en Lucena y comarca, para particulares y profesionales</p>
+    <p class="text-muted text-center">Disponible a partir del <strong>1 de Septiembre</strong>.</p>--}}
+    {{$message}}
     <div class="row mb-5 mt-5">
         <div class="col-md-4"></div>
         <div class="col-md-4">
