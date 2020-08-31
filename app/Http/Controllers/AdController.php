@@ -50,8 +50,8 @@ class AdController extends Controller
             'password' => Hash::make(Str::random(8))
         ]);
 
-        if($user->ads->count()>1){
-            Session::flash('error', 'Ha alcanzado la cota máxima de anuncios publicados. Borre algún anuncio o espere a que caduque alguno para volver a publicar.');
+        if($user->ads->count()>config('settings.ad_user_post_limit')){
+            Session::flash('error', 'Ha alcanzado la cota máxima de '.config('settings.ad_user_post_limit').' anuncios publicados. Borre algún anuncio o espere a que caduque alguno para volver a publicar.');
             //return route('main');//->withMessage('Ha alcanzado el límite de anuncios. Borre algún anuncio o espere a que caduquen para volver a publicar.');
             return route('main');
         }
