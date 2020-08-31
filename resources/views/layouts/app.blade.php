@@ -95,13 +95,16 @@
     <script crossorigin="anonymous"  src="https://cdn.tiny.cloud/1/0xmf4kd6fgzni5qvr3mc0ephfda1c2m8pc5dwgrirjxj4taf/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     @yield('scripts')
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{config('settings.site_google_analytics')}}"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    @if(!(auth()->check() && auth()->user()))
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{config('settings.site_google_analytics')}}"></script>
 
-        gtag('config', '{{config('settings.site_google_analytics')}}');
-    </script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '{{config('settings.site_google_analytics')}}');
+        </script>
+    @endif
 </body>
 </html>
