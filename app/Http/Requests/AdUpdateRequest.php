@@ -27,8 +27,7 @@ class AdUpdateRequest extends FormRequest
     {
         $ad = $this->ad;
         $this->redirect = $ad->getURL('edit');
-        dd($this->email);
-        $user = User::where('email', $this->email)->first();
+        $user = User::where('email', $this->ad->user->email)->first();
         return [
             'name' => 'required|max:200',
             'description' => 'required | max:10000',
