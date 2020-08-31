@@ -416,7 +416,6 @@
                    $('#fullName').val(result.name);
                    $('#phone').val(result.phone);
                    $('#fullName').attr('readonly', true);
-                   $('#fullName').attr('disabled', true);
                    $('#phone').attr('readonly', true);
                    $('#phone').attr('disabled', true);
                $('#contact_info_message').show();
@@ -428,7 +427,6 @@
            }).fail(function(){
                $('#fullName').attr('readonly', false);
                $('#phone').attr('readonly', false);
-               $('#fullName').attr('disabled', false);
                $('#phone').attr('disabled', false);
                $('#contact_info_message').hide();
            });
