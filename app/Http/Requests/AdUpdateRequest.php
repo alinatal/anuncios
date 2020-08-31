@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Ad;
 use Illuminate\Foundation\Http\FormRequest;
+Use App\User;
 use Illuminate\Validation\Rule;
 
 class AdUpdateRequest extends FormRequest
@@ -27,7 +28,7 @@ class AdUpdateRequest extends FormRequest
     {
         $ad = $this->ad;
         $this->redirect = $ad->getURL('edit');
-        $user = User::where('email', $ad->user->email)->first();
+        $user = User::where('email', 'info@anuncioslucena.com')->first();
         return [
             'name' => 'required|max:200',
             'description' => 'required | max:10000',
