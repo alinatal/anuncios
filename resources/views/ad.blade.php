@@ -2,7 +2,6 @@
 @section('title', $ad->name.' #'.$ad->id)
 
 @section('content')
-
     <x-breadcrumb
         :home="route('main')"
         :breadcrumbs="$categories"

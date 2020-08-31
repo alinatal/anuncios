@@ -17,7 +17,7 @@
 
             <div class="col-md-2 mt-1">
                 <a href="{{route('ads.create')}}" class="btn btn-block btn-danger font-weight-bold">
-                    <i class="fas fa-plus" style="font-size: 0.7rem;"></i> <span style="font-size: 0.7rem;" >Publicar anuncio</span>
+                    <i class="fas fa-plus" style="font-size: 0.7rem;"></i> <span style="font-size: 0.7rem;" >Nuevo anuncio</span>
                 </a>
             </div>
             <div class="col-md-2 mt-1">

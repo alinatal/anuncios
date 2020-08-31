@@ -99,7 +99,6 @@ class AdController extends Controller
         return route('ads.show', ['ad' => $ad->slug]);
         //return redirect(route('ads.show', ['ad' => $ad->slug]))->withMessage('Anuncio creado correctamente. Le recordamos que su anuncio será eliminado en 60 días si no se renueva. Recibirá instrucciones para la renovación días antes de que caduque.');
     }
-
     public function destroyRequest(Ad $ad){
         $user = $ad->user;
         Mail::to($user->email)->send(new AdUserRequest($ad, $user, 'destroy'));
