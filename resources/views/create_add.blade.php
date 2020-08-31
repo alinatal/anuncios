@@ -123,16 +123,16 @@
                     <div class="card-title"><h5>Información de contacto</h5></div>
                     <hr>
                     <div class="form-group">
-                        <label for="fullName">Nombre<small class="text-danger">*</small>:</label>
-                        <input type="text" id="fullName" name="fullName" class="form-control @error('fullName') is-invalid @enderror" placeholder="Como quieres que te llamen: nombre, seudónimo o empresa" required value="{{old('fullName')}}">
-                        @error('fullName')
+                        <label for="email">Email<small class="text-danger">*</small>:</label>
+                        <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Tu correo electrónico" required value="{{old('email')}}">
+                        @error('email')
                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="email">Email<small class="text-danger">*</small>:</label>
-                        <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Tu correo electrónico" required value="{{old('email')}}">
-                        @error('email')
+                        <label for="fullName">Nombre<small class="text-danger">*</small>:</label>
+                        <input type="text" id="fullName" name="fullName" class="form-control @error('fullName') is-invalid @enderror" placeholder="Como quieres que te llamen: nombre, seudónimo o empresa" required value="{{old('fullName')}}">
+                        @error('fullName')
                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                         @enderror
                     </div>
