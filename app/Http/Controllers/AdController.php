@@ -42,6 +42,19 @@ class AdController extends Controller
     }
 
     public function store(AdCreateRequest $request){
+
+        $user = User::firstOrCreate(['email' => $request->email], [
+            'name' => $request->fullName,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'password' => Hash::make(Str::random(8))
+        ]);
+
+        if($user->ads->count()>1){
+            Session::flash('error', 'Ha alcanzado la cota máxima de anuncios publicados. Borre algún anuncio o espere a que caduque alguno para volver a publicar.');
+            //return route('main');//->withMessage('Ha alcanzado el límite de anuncios. Borre algún anuncio o espere a que caduquen para volver a publicar.');
+            return route('main');
+        }
         //return dd($request);
         //sleep(5);
         //return (($request));
@@ -64,12 +77,7 @@ class AdController extends Controller
         else $paths = ['/img/no-image.png'];
         //return $request;
 
-        $user = User::firstOrCreate(['email' => $request->email], [
-                'name' => $request->fullName,
-                'email' => $request->email,
-                'phone' => $request->phone,
-                'password' => Hash::make(Str::random(8))
-            ]);
+
 
 //        $user = User::updateOrCreate(['email' => $request->email], [
 //                'name' => $request->fullName,

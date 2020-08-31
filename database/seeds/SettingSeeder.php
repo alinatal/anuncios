@@ -38,13 +38,14 @@ class SettingSeeder extends Seeder
             ['key' => 'site_phone', 'value' => '123 456 789', 'label'=> 'Teléfono', 'order' => 4, 'type' => 'text'],
             ['key' => 'site_logo', 'value' => '/img/logo.png', 'label'=> 'Logo', 'order' => 5, 'type' => 'text' ],
             ['key' => 'site_google_anlytics', 'value' => 'Codigo de analytics', 'label'=> 'Google Analytics', 'order' => 6, 'type' => 'text' ],
-            ['key' => 'site_footer_head', 'value' => 'Sobre nosotros', 'label'=> 'Título del pie de página', 'order' => 7, 'type' => 'text' ],
-            ['key' => 'site_footer_text', 'value' => 'Texto del footer', 'label'=> 'Descripción del pie de página', 'order' => 8, 'type' => 'textarea'],
-            ['key' => 'site_twitter', 'value' => 'https://twitter.com/', 'label'=> 'Twitter', 'order' => 9, 'type' => 'text' ],
-            ['key' => 'site_facebook', 'value' => 'https://facebook.com/', 'label'=> 'Facebook', 'order' => 10, 'type' => 'text' ],
-            ['key' => 'site_instagram', 'value' => 'https://instagram.com/', 'label'=> 'Instagram', 'order' => 11, 'type' => 'text' ],
-            ['key' => 'site_primary_menu', 'value' => $primary_menu, 'label'=> 'Menu principal', 'order' => 12, 'type' => 'json' ],
-            ['key' => 'site_secondary_menu', 'value' => $secondary_menu, 'label'=> 'Menu secundario', 'order' => 13, 'type' => 'json' ]
+            ['key' => 'ad_user_post_limit', 'value' => '30', 'label'=> 'Limite de publicaciones por usuario', 'order' => 7, 'type' => 'number' ],
+            ['key' => 'site_footer_head', 'value' => 'Sobre nosotros', 'label'=> 'Título del pie de página', 'order' => 8, 'type' => 'text' ],
+            ['key' => 'site_footer_text', 'value' => 'Texto del footer', 'label'=> 'Descripción del pie de página', 'order' => 9, 'type' => 'textarea'],
+            ['key' => 'site_twitter', 'value' => 'https://twitter.com/', 'label'=> 'Twitter', 'order' => 10, 'type' => 'text' ],
+            ['key' => 'site_facebook', 'value' => 'https://facebook.com/', 'label'=> 'Facebook', 'order' => 11, 'type' => 'text' ],
+            ['key' => 'site_instagram', 'value' => 'https://instagram.com/', 'label'=> 'Instagram', 'order' => 12, 'type' => 'text' ],
+            ['key' => 'site_primary_menu', 'value' => $primary_menu, 'label'=> 'Menu principal', 'order' => 13, 'type' => 'json' ],
+            ['key' => 'site_secondary_menu', 'value' => $secondary_menu, 'label'=> 'Menu secundario', 'order' => 14, 'type' => 'json' ]
         ]);
         //Setting::add('site_name', 'Anuncios Lucena');
 //        Setting::add('site_email', 'info@anuncioslucena.com');
