@@ -17,7 +17,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title')  | @if(request()->routeIs('main')) {{config('settings.site_description')}} @endif{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title') @if(!request()->routeIs('main')) | @endif{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
     {{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
