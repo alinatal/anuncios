@@ -41,6 +41,7 @@
             selector: 'textarea',
             language: 'es_ES',
             language_url: '{{asset('vendor/tinymce/langs/es_ES.js')}}',
+            plugins: 'print preview fullpage powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount tinymcespellchecker a11ychecker imagetools mediaembed  linkchecker contextmenu colorpicker textpattern help',
         });
     </script>
 @endsection
