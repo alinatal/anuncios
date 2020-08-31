@@ -27,7 +27,7 @@ class AdUpdateRequest extends FormRequest
     {
         $ad = $this->ad;
         $this->redirect = $ad->getURL('edit');
-        $user = User::where('email', $ad->user->email)->first();
+        //$user = User::where('email', $ad->user->email)->first();
         return [
             'name' => 'required|max:200',
             'description' => 'required | max:10000',
@@ -37,7 +37,7 @@ class AdUpdateRequest extends FormRequest
             //'images.*' => 'image | mimes:jpg,jpeg,webp,png,JPG,JPEG,WEBP,PNG | max:5120',
             'fullName' => 'required',
             'email' => 'required|email',
-            'phone' => ['regex:/^\+?[0-9]{0,14}$/', 'nullable', /*'unique:App\User,phone'*/ Rule::unique('user')->ignore($user->id)],
+            'phone' => ['regex:/^\+?[0-9]{0,14}$/', 'nullable', 'unique:App\User,phone'],
         ];
     }
 
