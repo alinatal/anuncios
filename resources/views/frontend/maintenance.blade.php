@@ -16,16 +16,18 @@
         </div>
         <div class="col-4"></div>
     </div>
-    {{--<p class="text-muted text-center">Tu nuevo portal de anuncios gratis en Lucena y comarca, para particulares y profesionales</p>
-    <p class="text-muted text-center">Disponible a partir del <strong>1 de Septiembre</strong>.</p>--}}
-    {{$message}}
+    {{--<p class="text-muted text-center">Tu nuevo portal de anuncios gratis en Lucena y comarca, para particulares y profesionales</p>--}}
+    {{--<p class="text-muted text-center">Disponible a partir del <strong>1 de Septiembre</strong>.</p>--}}
+    <p class="h1 mt-5 text-center">Web en Mantenimiento</p>
+    <p class="text-muted text-center">Estamos trabajando en mejorar la experiencia de Anuncios Lucena. Vuelve en unos mínutos.</p>
+
     <div class="row mb-5 mt-5">
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <div class="form-group">
                 <form action="">
                     @csrf
-                    <input type="text" name="access" placeholder="Acceso anticipado..." class="form-control text-center">
+                    <input type="text" name="access" placeholder="¿Eres admin? ¡Accede ahora!" class="form-control text-center">
                 </form>
             </div>
         </div>
