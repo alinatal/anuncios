@@ -3,7 +3,9 @@
 namespace App\Http\Requests;
 
 use App\Ad;
+use http\Client\Curl\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class AdUpdateRequest extends FormRequest
 {
@@ -26,6 +28,7 @@ class AdUpdateRequest extends FormRequest
     {
         $ad = $this->ad;
         $this->redirect = $ad->getURL('edit');
+        $user = User::where('email', $this->email)->first();
         return [
             'name' => 'required|max:200',
             'description' => 'required | max:10000',
@@ -35,7 +38,7 @@ class AdUpdateRequest extends FormRequest
             //'images.*' => 'image | mimes:jpg,jpeg,webp,png,JPG,JPEG,WEBP,PNG | max:5120',
             'fullName' => 'required',
             'email' => 'required|email',
-            'phone' => ['regex:/^\+?[0-9]{0,14}$/', 'nullable', 'unique:App\User,phone'],
+            'phone' => ['regex:/^\+?[0-9]{0,14}$/', 'nullable', /*'unique:App\User,phone'*/ Rule::unique('users')->ignore($user->id)],
         ];
     }
 
