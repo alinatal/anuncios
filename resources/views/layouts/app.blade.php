@@ -57,6 +57,11 @@
 
         <main class="py-4">
             <div class="container">
+                @isset($message)
+                    <div class="alert alert-info" role="alert">
+                        {!! $message !!}
+                    </div>
+                @endisset
                 @if(session('message'))
                     <div class="alert alert-info" role="alert">
                         {!! session('message') !!}

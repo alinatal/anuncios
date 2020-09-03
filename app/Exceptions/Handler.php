@@ -2,7 +2,10 @@
 
 namespace App\Exceptions;
 
+use App\Ad;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Session;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -50,6 +53,31 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        return parent::render($request, $exception);
+        if(get_class($exception) == "Illuminate\Database\Eloquent\ModelNotFoundException" && $exception->getModel() == ('App\Ad')) {
+            $columns = ['name','description'];
+            $string = $exception->getIds()[0];
+            $string = str_replace('-', ' ', $string);
+
+            $words_search = explode(" ", $string);
+            $ads = Ad::from('ads as a')
+                ->where(function ($query) use ($columns, $words_search) {
+                    foreach ($words_search as $word) {
+                        $query = $query->where(function ($query) use ($columns,$word) {
+                            foreach ($columns as $column) {
+                                $query->orWhere($column,'like',"%$word%");
+                            }
+                        });
+                    }
+                })->paginate(10)/*->limit(15)*/;
+
+
+
+            return (new Response(view('search')
+                ->withAds($ads)
+                ->withSearch($string)
+                ->withMessage('<strong>ERROR 404</strong>: El anuncio que has seguido ya no existe. A continuación te dejamos algunos anuncios que te podrían interesar.'),
+                404));
+        }
+            return parent::render($request, $exception);
     }
 }
