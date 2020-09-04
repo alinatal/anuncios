@@ -74,7 +74,7 @@ class Handler extends ExceptionHandler
 
             return (new Response(view('search')
                 ->withAds($ads)
-                ->withSearch($string)
+                //->withSearch($string)
                 ->withMessage('<strong>ERROR 404</strong>: El anuncio que has seguido ya no existe. A continuación te dejamos algunos anuncios que te podrían interesar.'),
                 404));
         }
