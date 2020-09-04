@@ -1,6 +1,15 @@
 @extends('layouts.app')
 @section('title', $ad->name.' #'.$ad->id)
 
+@section('meta-tags')
+    <meta property="og:url"                content="{{url()}}" />
+    <meta property="og:type"               content="website" />
+    <meta property="og:title"              content="{{$ad->name}}" />
+    <meta property="og:description"        content="{{\Illuminate\Support\Str::words($description, 20)}}" />
+    <meta property="og:image"              content="{{$images[0]}}" />
+    <meta property="og:locale"              content="es_ES" />
+@endsection
+
 @section('content')
     <x-breadcrumb
         :home="route('main')"
