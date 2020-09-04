@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-    @section('title', "Resultados de búsqueda para: \"$search\"")
+    @section('title')
+        @isset($search)
+            "Resultados de búsqueda para: \"$search\"")
+        @endisset
+    @endsection
 
 @section('content')
 
