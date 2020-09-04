@@ -70,13 +70,18 @@ class Handler extends ExceptionHandler
                     }
                 })->paginate(10)/*->limit(15)*/;
 
-            if($ads->count() == 0) $ads = Ad::paginate(10);
+            $view = view('search');
+            if($ads->count() == 0) {
+                $ads = Ad::paginate(10);
+            }
+            else{
+                $view->withSearch($string);
+            }
 
-            return (new Response(view('search')
-                ->withAds($ads)
-                //->withSearch($string)
-                ->withMessage('<strong>ERROR 404</strong>: El anuncio que has seguido ya no existe. A continuación te dejamos algunos anuncios que te podrían interesar.'),
-                404));
+            $view->withAds($ads)
+                 ->withMessage('<strong>ERROR 404</strong>: El anuncio que has seguido ya no existe. A continuación te dejamos algunos anuncios que te podrían interesar.');
+
+            return (new Response($view, 404));
         }
             return parent::render($request, $exception);
     }

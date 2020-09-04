@@ -2,7 +2,7 @@
 
     @section('title')
         @isset($search)
-            "Resultados de búsqueda para: \"$search\"")
+            Resultados de búsqueda para: {{$search}}
         @endisset
     @endsection
 
@@ -20,8 +20,9 @@
             ></x-ad-card>
         @endforeach
     </div>
-
-    {!! $ads->appends(['search'=>$search])->links() !!}
-
-
+    @isset($search)
+        {!! $ads->appends(['search'=>$search])->links() !!}
+    @else
+        {!! $ads !!}
+    @endif
 @endsection
