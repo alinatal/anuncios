@@ -70,7 +70,7 @@ class Handler extends ExceptionHandler
                     }
                 })->paginate(10)/*->limit(15)*/;
 
-            if($ads->count == 0) $ads = Ad::all()->paginate(10);
+            if($ads->count() == 0) $ads = Ad::paginate(10);
 
             return (new Response(view('search')
                 ->withAds($ads)
