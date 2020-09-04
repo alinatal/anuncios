@@ -2,7 +2,7 @@
 @section('title', $ad->name.' #'.$ad->id)
 
 @section('meta-tags')
-    <meta property="og:url"                content="{{url()}}" />
+    <meta property="og:url"                content="{{url()->current()}}" />
     <meta property="og:type"               content="website" />
     <meta property="og:title"              content="{{$ad->name}}" />
     <meta property="og:description"        content="{{\Illuminate\Support\Str::words($description, 20)}}" />
