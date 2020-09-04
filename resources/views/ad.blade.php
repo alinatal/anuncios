@@ -5,7 +5,7 @@
     <meta property="og:url"                content="{{url()->current()}}" />
     <meta property="og:type"               content="website" />
     <meta property="og:title"              content="{{$ad->name}}" />
-    <meta property="og:description"        content="{{\Illuminate\Support\Str::words($ad->description, 20)}}" />
+    <meta property="og:description"        content="{{strip_tags(\Illuminate\Support\Str::words($ad->description, 20))}}" />
     <meta property="og:image"              content="{{secure_asset($images[0])}}" />
     <meta property="og:locale"              content="es_ES" />
 @endsection
