@@ -12,7 +12,7 @@
     <meta property="og:type"               content="website" />
     <meta property="og:title"              content="{{config('settings.site_name')}}" />
     <meta property="og:description"        content="{{config('settings.site_description')}}" />
-    <meta property="og:image"              content="{{secure_asset('/img/apple-touch-icon.png')}}" />
+    <meta property="og:image"              content="{{secure_asset('/img/logo-fb.png')}}" />
     <meta property="og:locale"              content="es_ES" />
 
 @endsection
