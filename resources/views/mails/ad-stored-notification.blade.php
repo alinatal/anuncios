@@ -191,6 +191,30 @@
                             <tr>
                                 <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                                     <div style="font-family:helvetica;font-size:14px;line-height:1;text-align:left;color:#154954;">
+                                        Comparte tu anuncio en Facebook y haz que se venda más rápido
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="center" vertical-align="middle" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
+
+                                        <tr>
+                                            <td align="center" bgcolor="#154954" role="presentation" style="border:none;border-radius:3px;cursor:auto;mso-padding-alt:10px 25px;background:#154954;" valign="middle">
+                                                <a href="https://www.facebook.com/sharer/sharer.php?u={{urlencode(route('ads.show', $ad))}}&quote={{urlencode('Hola, ¡mira el anuncio que acabo de publicar! Quizá te interese.')}}" style="display:inline-block;background:#154954;color:#ffffff;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:3px;" target="_blank">
+                                                    Compartir en Facebook
+                                                </a>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                    <div style="font-family:helvetica;font-size:14px;line-height:1;text-align:left;color:#154954;">
                                         Si quieres ver todos tus anuncios, puedes acceder al apartado "<a
                                             href="{{route('my-ads', ['email' => $user->email])}}" target="_blank">Mis anuncios</a>" en nuestra web.
                                     </div>
