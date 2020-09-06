@@ -99,7 +99,7 @@ class AdController extends Controller
                                     <br>
                                     Comparte tu anuncio en Facebook y haz que se difunda más rápido<br>
                                     <a href="https://www.facebook.com/sharer/sharer.php?u={{urlencode(route(\'ads.show\', $ad))}}&quote={{urlencode(\'Hola, ¡mira el anuncio que acabo de publicar! Quizá te interese.\')}}" class="btn btn-lg btn-block btn-info mt-3" target="_blank">
-                                         <i class="fa fa-facebook" aria-hidden="true"></i>Compartir en Facebook
+                                         <i class="fa fa-facebook mr-2" aria-hidden="true"></i>Compartir en Facebook
                                     </a>
                         ');
         return route('ads.show', ['ad' => $ad->slug]);
