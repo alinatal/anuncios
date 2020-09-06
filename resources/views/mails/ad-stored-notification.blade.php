@@ -191,7 +191,7 @@
                             <tr>
                                 <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                                     <div style="font-family:helvetica;font-size:14px;line-height:1;text-align:left;color:#154954;">
-                                        Comparte tu anuncio en Facebook y haz que se venda más rápido
+                                        Comparte tu anuncio en Facebook y haz que se difunda más rápido
                                     </div>
                                 </td>
                             </tr>

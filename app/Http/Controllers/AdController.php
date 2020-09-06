@@ -95,7 +95,13 @@ class AdController extends Controller
 
 
         //return response(route('ads.show', ['ad' => $ad->slug])->withMessage('Anuncio creado correctamente. Le recordamos que su anuncio será eliminado en 60 días si no se renueva. Recibirá instrucciones para la renovación días antes de que caduque.'), 200);
-        Session::flash('message', 'Anuncio creado correctamente. Le recordamos que su anuncio será eliminado en 60 días si no se renueva. Recibirá instrucciones para la renovación días antes de que caduque.');
+        Session::flash('message', 'Anuncio creado correctamente. Le recordamos que su anuncio será eliminado en 60 días si no se renueva. Recibirá instrucciones para la renovación días antes de que caduque.
+                                    <br>
+                                    Comparte tu anuncio en Facebook y haz que se difunda más rápido<br>
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{urlencode(route(\'ads.show\', $ad))}}&quote={{urlencode(\'Hola, ¡mira el anuncio que acabo de publicar! Quizá te interese.\')}}" class="btn btn-lg btn-block btn-info mt-3" target="_blank">
+                                         <i class="fa fa-facebook" aria-hidden="true"></i>Compartir en Facebook
+                                    </a>
+                        ');
         return route('ads.show', ['ad' => $ad->slug]);
         //return redirect(route('ads.show', ['ad' => $ad->slug]))->withMessage('Anuncio creado correctamente. Le recordamos que su anuncio será eliminado en 60 días si no se renueva. Recibirá instrucciones para la renovación días antes de que caduque.');
     }
