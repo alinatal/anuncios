@@ -34,7 +34,7 @@
 </head>
 <body>
     <div id="loading" style="display: none">
-        <div id="loading" class="text-center" style="height: 100%; width: 100%; z-index: 9999999; background-color: #0D4E60; position: absolute; display: flex; justify-content: center; align-items: center">
+        <div class="text-center" style="height: 100%; width: 100%; z-index: 9999999; background-color: #0D4E60; position: absolute; display: flex; justify-content: center; align-items: center">
             <div class="fa-3x" style="">
                 <i class="fas fa-spinner fa-spin text-white"></i>
                 <p class="text-white h4">Subiendo el anuncio. Por favor, espere...</p>
