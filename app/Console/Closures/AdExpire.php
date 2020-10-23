@@ -4,17 +4,23 @@ namespace App\Console\Closures;
 use App\Ad;
 use App\Mail\AdExpiresNotification;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class AdExpire{
     public function __invoke()
     {
         /// Avisamos a los usuarios que caducarán próximamente
-        $expiration_date = (int) env("AD_EXPIRATION_DATE");
-        $notification_date = (int) env("AD_EXPIRATION_DATE_NOTIFICATION");
+        $days_expiration = config('ad.expiration_date');
+        $days_expired = config('ad.expiration_notification');
 
-        $days_notification = $expiration_date + $notification_date;
-        $days_expired = $days_notification + $notification_date;
+        $days_notification = $days_expiration + $days_expired;
+
+        echo "Ad expires in ".$days_expiration." days\n";
+        echo "Notificate users ".$days_expired." days before\n";
+        echo "So notification is sended ".$days_notification." days before of now\n";
+        echo "Advert ads older than ".now()->subDays($days_notification)."\n";
+        echo "Deleting ads older than ".now()->subDays($days_expiration);
 
         $user_ads = DB::table('ads')
             ->join('users', 'ads.user_id', '=', 'users.id')
@@ -32,7 +38,7 @@ class AdExpire{
         }
 
         // Si los anuncios han caducado los borramos
-        $ads = Ad::where('updated_at', '<=', now()->subDays($days_expired))->where('expire_notification', '=', true)->get();
+        $ads = Ad::where('updated_at', '<=', now()->subDays($days_expiration))->where('expire_notification', '=', true)->get();
         foreach ($ads as $ad){
             $ad->delete();
         }

@@ -30,3 +30,8 @@ Artisan::command('fetch', function (){
 Artisan::command('commit', function (){
     $this->comment(exec('bash commit.sh'));
 })->describe('Commit data to repository');
+
+Artisan::command('adexpire', function(){
+    $closure = new \App\Console\Closures\AdExpire();
+    $closure();
+});
