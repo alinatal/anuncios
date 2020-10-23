@@ -139,7 +139,7 @@
                             </tr>
                             <tr>
                                 <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                    <div style="font-family:helvetica;font-size:14px;line-height:1;text-align:left;color:#154954;">Nos ponemos en contacto contigo porque tu anuncio {{$data->name}} caducará en las próximas 48h. Si quieres renovar el anuncio por otros 60 días pulsa el siguiente botón:</div>
+                                    <div style="font-family:helvetica;font-size:14px;line-height:1;text-align:left;color:#154954;">Nos ponemos en contacto contigo porque tu anuncio {{$data->name}} caducará en {{env('AD_EXPIRATION_DATE_NOTIFICATION')}} dias. Si quieres renovar el anuncio por otros {{env('AD_EXPIRATION_DATE')}} días pulsa el siguiente botón:</div>
                                 </td>
                             </tr>
                             <tr>
