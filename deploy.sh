@@ -6,8 +6,8 @@ echo "Deploying application ..."
 # Enter maintenance mode
 (php artisan down --message 'La aplicación está siendo (rápidamente!) actualizada. Por favor, intentelo de nuevo en un minuto.') || true
     # Update codebase
-    git fetch origin master
-    git reset --hard origin/master
+#    git fetch origin master
+ #   git reset --hard origin/master
 
     # Install dependencies based on lock file
     #composer install --no-interaction --prefer-dist --optimize-autoloader

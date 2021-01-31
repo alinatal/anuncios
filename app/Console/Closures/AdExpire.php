@@ -15,7 +15,7 @@ class AdExpire{
         $days_expired = config('ad.expiration_notification');
 
         $days_notification = $days_expiration + $days_expired;
-
+        $days_delete = $days_notification + $days_expired;
         echo "Ad expires in ".$days_expiration." days\n";
         echo "Notificate users ".$days_expired." days before\n";
         echo "So notification is sended ".$days_notification." days before of now\n";
@@ -38,9 +38,9 @@ class AdExpire{
             Mail::to($user_ad->email)->send(new AdExpiresNotification($user_ad));
         }
 
-        echo "Deleting ads older than ".now()->subDays($days_expiration)."\n";
+        echo "Deleting ads older than ".now()->subDays($days_delete)."\n";
         // Si los anuncios han caducado los borramos
-        $ads = Ad::where('updated_at', '<=', now()->subDays($days_expiration))->where('expire_notification', '=', true)->get();
+        $ads = Ad::where('updated_at', '<=', now()->subDays($days_delete))->where('expire_notification', '=', true)->get();
         foreach ($ads as $ad){
             $ad->delete();
         }
